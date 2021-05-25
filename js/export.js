@@ -183,3 +183,36 @@ function changeDialog(style, text){
         break;
     }
 }
+
+document.getElementById("signout-link").addEventListener("click", () => {
+    logout();
+});
+
+document.getElementById("signout-link-mobile").addEventListener("click", () => {
+    logout();
+});
+
+document.getElementById("main-menu-toggle-btn").addEventListener("click", () => {
+    toggleMenu();
+});
+
+document.getElementById("dialog-button-cancel").addEventListener("click", () => {
+    hide('dialog');
+});
+
+document.getElementById("passky-import-btn").addEventListener("click", () => {
+    changeDialog(1);
+    show('dialog');
+});
+
+document.getElementById("passky-backup-btn").addEventListener("click", () => {
+    backup_passky();
+});
+
+document.getElementById("passky-export-btn").addEventListener("click", () => {
+    export_passky();
+});
+
+document.getElementById("lastpass-export-btn").addEventListener("click", () => {
+    export_lastpass();
+});
