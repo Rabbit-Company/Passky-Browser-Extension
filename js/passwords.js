@@ -502,8 +502,8 @@ function deleteAccount(){
 
             if(typeof json['error'] === 'undefined') return;
             if(json['error'] != 0) return;
-  
-            window.location.href = 'index.html';
+            
+            logout();
         }
 
     };
