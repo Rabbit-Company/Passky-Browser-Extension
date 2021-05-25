@@ -1,5 +1,17 @@
 check_login();
 
+console.log("URL session: " + localStorage.url);
+console.log("URL local: " + localStorage.url);
+
+console.log("Username session: " + localStorage.username);
+console.log("Username local: " + localStorage.username);
+
+console.log("Password session: " + localStorage.password);
+console.log("Password local: " + localStorage.password);
+
+console.log("Passwords session: " + localStorage.passwords);
+console.log("Passwords local: " + localStorage.passwords);
+
 function import_passky(){
 
     check_login();
@@ -25,31 +37,31 @@ function import_passky(){
 
         let website = ido["passwords"][i]["website"];
         let username = ido["passwords"][i]["username"];
-        let password = (encrypted) ? CryptoJS.AES.decrypt(ido["passwords"][i]["password"], sessionStorage.password).toString(CryptoJS.enc.Utf8) : ido["passwords"][i]["password"];
+        let password = (encrypted) ? CryptoJS.AES.decrypt(ido["passwords"][i]["password"], localStorage.password).toString(CryptoJS.enc.Utf8) : ido["passwords"][i]["password"];
 
         if(!isPasswordWebsiteValid(website)) continue;
         if(!isPasswordUsernameValid(username)) continue;
         if(!isPasswordPasswordValid(password)) continue;
 
         let duplicated = false;
-        const current_passwords = JSON.parse(sessionStorage.passwords);
+        const current_passwords = JSON.parse(localStorage.passwords);
         for(let k = 0; k < current_passwords.length; k++){
-            if(current_passwords[k]["website"] == website && current_passwords[k]["username"] == username && CryptoJS.AES.decrypt(current_passwords[k]["password"], sessionStorage.password).toString(CryptoJS.enc.Utf8) == password) duplicated = true;
+            if(current_passwords[k]["website"] == website && current_passwords[k]["username"] == username && CryptoJS.AES.decrypt(current_passwords[k]["password"], localStorage.password).toString(CryptoJS.enc.Utf8) == password) duplicated = true;
         }
         if(duplicated) continue;
 
         passwords[j] = {};
         passwords[j]["website"] = website;
         passwords[j]["username"] = username;
-        passwords[j]["password"] = CryptoJS.AES.encrypt(password, sessionStorage.password).toString();
+        passwords[j]["password"] = CryptoJS.AES.encrypt(password, localStorage.password).toString();
         j++;
     }
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", sessionStorage.url + "/?action=importPasswords");
+    xhr.open("POST", localStorage.url + "/?action=importPasswords");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(sessionStorage.username + ":" + sha512(sessionStorage.password)));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.username + ":" + sha512(localStorage.password)));
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = function () {
@@ -94,7 +106,7 @@ function backup_passky(){
 
     check_login();
 
-    let passwords = JSON.parse(sessionStorage.passwords);
+    let passwords = JSON.parse(localStorage.passwords);
     for(let i = 0; i < passwords.length; i++) delete passwords[i]['id'];
 
     let backup_passky = { encrypted : true, passwords : passwords };
@@ -106,10 +118,10 @@ function export_passky(){
 
     check_login();
 
-    let passwords = JSON.parse(sessionStorage.passwords);
+    let passwords = JSON.parse(localStorage.passwords);
     for(let i = 0; i < passwords.length; i++){
         delete passwords[i]['id'];
-        passwords[i]['password'] = CryptoJS.AES.decrypt(passwords[i]['password'], sessionStorage.password).toString(CryptoJS.enc.Utf8);
+        passwords[i]['password'] = CryptoJS.AES.decrypt(passwords[i]['password'], localStorage.password).toString(CryptoJS.enc.Utf8);
     }
 
     let export_passky = { encrypted : false, passwords : passwords };
@@ -122,9 +134,9 @@ function export_lastpass(){
     check_login();
 
     let export_data = "url,username,password,totp,extra,name,grouping,fav";
-    let passwords = JSON.parse(sessionStorage.passwords);
+    let passwords = JSON.parse(localStorage.passwords);
     for(let i = 0; i < passwords.length; i++){
-        export_data += "\n" + passwords[i]["website"] + "," + passwords[i]["username"] + "," + CryptoJS.AES.decrypt(passwords[i]["password"], sessionStorage.password).toString(CryptoJS.enc.Utf8) + ",,," + passwords[i]["website"] + ",,0";
+        export_data += "\n" + passwords[i]["website"] + "," + passwords[i]["username"] + "," + CryptoJS.AES.decrypt(passwords[i]["password"], localStorage.password).toString(CryptoJS.enc.Utf8) + ",,," + passwords[i]["website"] + ",,0";
     }
 
     downloadTxt(export_data, "lastpass_" + getDate(new Date()));

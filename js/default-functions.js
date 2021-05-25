@@ -23,10 +23,10 @@ function validEmail(mail){
 }
 
 function check_login(){
-    if(sessionStorage.url == null && typeof(sessionStorage.url) == 'undefined') window.location.href = 'index.html';
-    if(sessionStorage.username == null && typeof(sessionStorage.username) == 'undefined') window.location.href = 'index.html';
-    if(sessionStorage.password == null && typeof(sessionStorage.password) == 'undefined') window.location.href = 'index.html';
-    if(sessionStorage.passwords == null && typeof(sessionStorage.passwords) == 'undefined') window.location.href = 'index.html';
+    if(localStorage.url == null && typeof(localStorage.url) == 'undefined') window.location.href = 'index.html';
+    if(localStorage.username == null && typeof(localStorage.username) == 'undefined') window.location.href = 'index.html';
+    if(localStorage.password == null && typeof(localStorage.password) == 'undefined') window.location.href = 'index.html';
+    if(localStorage.passwords == null && typeof(localStorage.passwords) == 'undefined') window.location.href = 'index.html';
 }
 
 function animateButton(id, enabled){
@@ -164,10 +164,10 @@ function isPasswordPasswordValid(password){
 
 function refreshPasswords(){
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", sessionStorage.url + "/?action=getPasswords");
+    xhr.open("POST", localStorage.url + "/?action=getPasswords");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(sessionStorage.username + ":" + sha512(sessionStorage.password)));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.username + ":" + sha512(localStorage.password)));
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = function () {
@@ -181,9 +181,9 @@ function refreshPasswords(){
             if(json['error'] != 0 && json['error'] != 8) return;
 
             if(json['error'] == 0){
-                sessionStorage.passwords = JSON.stringify(json['passwords']);
+                localStorage.passwords = JSON.stringify(json['passwords']);
             }else{
-                sessionStorage.passwords = "{}";
+                localStorage.passwords = "{}";
             }
 
             window.location.href = 'passwords.html';
@@ -194,8 +194,7 @@ function refreshPasswords(){
 }
 
 function logout(){
-    sessionStorage.url = null;
-    sessionStorage.username = null;
-    sessionStorage.password = null;
+    delete localStorage.password;
+    delete localStorage.passwords;
     window.location.href = 'index.html';
 }

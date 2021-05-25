@@ -1,3 +1,3 @@
-if(sessionStorage.url == null && typeof(sessionStorage.url) == 'undefined') window.location.href = 'index.html';
-if(sessionStorage.username == null && typeof(sessionStorage.username) == 'undefined') window.location.href = 'index.html';
-if(sessionStorage.password == null && typeof(sessionStorage.password) == 'undefined') window.location.href = 'index.html';
+if(localStorage.url == null && typeof(localStorage.url) == 'undefined') window.location.href = 'index.html';
+if(localStorage.username == null && typeof(localStorage.username) == 'undefined') window.location.href = 'index.html';
+if(localStorage.password == null && typeof(localStorage.password) == 'undefined') window.location.href = 'index.html';

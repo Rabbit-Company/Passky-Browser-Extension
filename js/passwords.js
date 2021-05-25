@@ -1,10 +1,10 @@
 function displayPasswords(){
     let html_passwords = "";
 
-    if(sessionStorage.passwords !== null && typeof(sessionStorage.passwords) !== 'undefined'){
-        const passwords = JSON.parse(sessionStorage.passwords);
+    if(localStorage.passwords !== null && typeof(localStorage.passwords) !== 'undefined'){
+        const passwords = JSON.parse(localStorage.passwords);
         for(let i = 0; i < passwords.length; i++){
-            const decrypted_password = CryptoJS.AES.decrypt(passwords[i].password, sessionStorage.password).toString(CryptoJS.enc.Utf8);
+            const decrypted_password = CryptoJS.AES.decrypt(passwords[i].password, localStorage.password).toString(CryptoJS.enc.Utf8);
             const data = passwords[i].id + " " + passwords[i].website + " " + passwords[i].username + " " + decrypted_password;
 
             html_passwords += "<tr><td class='px-8 py-4 whitespace-nowrap'><div class='flex items-center'><div class='flex-shrink-0 h-10 w-10'>";
@@ -35,7 +35,7 @@ function displayPasswords(){
 
         for(let i = 0; i < passwords.length; i++){
 
-            const decrypted_password = CryptoJS.AES.decrypt(passwords[i].password, sessionStorage.password).toString(CryptoJS.enc.Utf8);
+            const decrypted_password = CryptoJS.AES.decrypt(passwords[i].password, localStorage.password).toString(CryptoJS.enc.Utf8);
             const data = passwords[i].id + " " + passwords[i].website + " " + passwords[i].username + " " + decrypted_password;
 
             document.getElementById("copy-username-" + passwords[i].id).addEventListener("click", () => {
@@ -331,18 +331,18 @@ function addPassword(){
         return;
     }
 
-    if(sessionStorage.url === null || typeof(sessionStorage.url) === 'undefined' || sessionStorage.username === null || typeof(sessionStorage.username) === 'undefined' || sessionStorage.password === null || typeof(sessionStorage.password) === 'undefined'){
+    if(localStorage.url === null || typeof(localStorage.url) === 'undefined' || localStorage.username === null || typeof(localStorage.username) === 'undefined' || localStorage.password === null || typeof(localStorage.password) === 'undefined'){
         changeDialog(2, "Session has expired please sign in again!");
         return;
     }
 
-    password = CryptoJS.AES.encrypt(password, sessionStorage.password).toString();
+    password = CryptoJS.AES.encrypt(password, localStorage.password).toString();
     
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", sessionStorage.url + "/?action=savePassword");
+    xhr.open("POST", localStorage.url + "/?action=savePassword");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(sessionStorage.username + ":" + sha512(sessionStorage.password)));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.username + ":" + sha512(localStorage.password)));
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -409,18 +409,18 @@ function editPassword(password_id){
         return;
     }
 
-    if(sessionStorage.url === null || typeof(sessionStorage.url) === 'undefined' || sessionStorage.username === null || typeof(sessionStorage.username) === 'undefined' || sessionStorage.password === null || typeof(sessionStorage.password) === 'undefined'){
+    if(localStorage.url === null || typeof(localStorage.url) === 'undefined' || localStorage.username === null || typeof(localStorage.username) === 'undefined' || localStorage.password === null || typeof(localStorage.password) === 'undefined'){
         changeDialog(2, "Session has expired please sign in again!");
         return;
     }
 
-    password = CryptoJS.AES.encrypt(password, sessionStorage.password).toString();
+    password = CryptoJS.AES.encrypt(password, localStorage.password).toString();
     
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", sessionStorage.url + "/?action=editPassword");
+    xhr.open("POST", localStorage.url + "/?action=editPassword");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(sessionStorage.username + ":" + sha512(sessionStorage.password)));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.username + ":" + sha512(localStorage.password)));
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -452,10 +452,10 @@ function editPassword(password_id){
 
 function deletePassword(password_id){
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", sessionStorage.url + "/?action=deletePassword");
+    xhr.open("POST", localStorage.url + "/?action=deletePassword");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(sessionStorage.username + ":" + sha512(sessionStorage.password)));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.username + ":" + sha512(localStorage.password)));
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -487,10 +487,10 @@ function deletePassword(password_id){
 
 function deleteAccount(){
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", sessionStorage.url + "/?action=deleteAccount");
+    xhr.open("POST", localStorage.url + "/?action=deleteAccount");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(sessionStorage.username + ":" + sha512(sessionStorage.password)));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.username + ":" + sha512(localStorage.password)));
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = function () {

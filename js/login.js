@@ -1,5 +1,19 @@
+if(localStorage.url !== null && typeof(localStorage.url) !== 'undefined' && localStorage.username !== null && typeof(localStorage.username) != 'undefined' && localStorage.password !== null && typeof(localStorage.password) !== 'undefined' && localStorage.passwords !== null && typeof(localStorage.passwords) !== 'undefined') window.location.href = 'passwords.html';
+
 if(localStorage.url !== null && typeof(localStorage.url) !== 'undefined') document.getElementById('passky-server').value = localStorage.url;
 if(localStorage.username !== null && typeof(localStorage.username) !== 'undefined') document.getElementById('username').value = localStorage.username;
+
+console.log("URL session: " + sessionStorage.url);
+console.log("URL local: " + localStorage.url);
+
+console.log("Username session: " + sessionStorage.username);
+console.log("Username local: " + localStorage.username);
+
+console.log("Password session: " + sessionStorage.password);
+console.log("Password local: " + localStorage.password);
+
+console.log("Passwords session: " + sessionStorage.passwords);
+console.log("Passwords local: " + localStorage.passwords);
 
 document.getElementById("login_form").addEventListener("submit", e => {
     e.preventDefault();
@@ -66,17 +80,14 @@ function onBtnClick(){
             }
 
             if(json['error'] == 0){
-                sessionStorage.passwords = JSON.stringify(json['passwords']);
+                localStorage.passwords = JSON.stringify(json['passwords']);
             }else{
-                sessionStorage.passwords = "{}";
+                localStorage.passwords = "{}";
             }
-
-            sessionStorage.url = url;
-            sessionStorage.username = username;
-            sessionStorage.password = password;
 
             localStorage.url = url;
             localStorage.username = username;
+            localStorage.password = password;
 
             window.location.href = 'passwords.html';
         }
