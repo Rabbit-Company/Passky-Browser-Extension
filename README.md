@@ -1,1 +1,1 @@
-# Passky-Chrome-Extension
+# Passky-Browser-Extension
