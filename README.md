@@ -32,4 +32,12 @@ As Firefox still don't support manifest version 3, new extensions aren't compati
 5. Click on Load Unpacked and select extracted folder
 6. Extension is now enabled (You can also pin it for easier access)
 
+### Vivaldi
+1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.2/passky-1.0.2.zip)
+2. Extract .zip file
+3. Navigate to Extenstions (vivaldi://extensions/)
+4. Turn on developer mode (Top right corner)
+5. Click on Load Unpacked and select extracted folder
+6. Extension is now enabled (You can also pin it for easier access)
+
 Installation process will be easier when Passky extension would be added to their web store.
