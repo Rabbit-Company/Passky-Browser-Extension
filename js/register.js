@@ -1,17 +1,5 @@
 if(localStorage.url !== null && typeof(localStorage.url) !== 'undefined') document.getElementById('passky-server').value = localStorage.url;
 
-console.log("URL session: " + localStorage.url);
-console.log("URL local: " + localStorage.url);
-
-console.log("Username session: " + localStorage.username);
-console.log("Username local: " + localStorage.username);
-
-console.log("Password session: " + localStorage.password);
-console.log("Password local: " + localStorage.password);
-
-console.log("Passwords session: " + localStorage.passwords);
-console.log("Passwords local: " + localStorage.passwords);
-
 document.getElementById("signup-form").addEventListener("submit", e => {
     e.preventDefault();
     onBtnClick();

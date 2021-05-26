@@ -8,6 +8,7 @@
     <link rel="shortcut icon" type="image/png" href="images/logo.png"/>
     <link rel="stylesheet" href="css/tailwind.min.css">
     <link rel="stylesheet" href="css/passwords.css">
+    <link rel="stylesheet" href="css/export.css">
     <script src="js/aes.js"></script>
   </head>
 
@@ -58,7 +59,7 @@
     <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200">
             <div class="flex-1 flex flex-col p-8">
-                <img class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" style="background-color: #e6f5ff;" src="images/logo.png" alt="Passky">
+                <img id="passky-logo" class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" src="images/logo.png" alt="Passky">
                 <h3 class="mt-6 text-gray-900 text-lg font-medium">Passky</h3>
             </div>
             <div>
@@ -99,7 +100,7 @@
           </li>
         <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200">
             <div class="flex-1 flex flex-col p-8">
-                <img class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" style="background-color: #3c8dbc;" src="images/bitwarden.png" alt="Bitwarden">
+                <img id="bitwarden-logo" class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" src="images/bitwarden.png" alt="Bitwarden">
                 <h3 class="mt-6 text-gray-900 text-lg font-medium">Bitwarden</h3>
             </div>
             <div>
@@ -129,7 +130,7 @@
         </li>
         <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200">
             <div class="flex-1 flex flex-col p-8">
-                <img class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" style="background-color: #d12f2e;" src="images/lastpass.png" alt="Lastpass">
+                <img id="lastpass-logo" class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" src="images/lastpass.png" alt="Lastpass">
                 <h3 class="mt-6 text-gray-900 text-lg font-medium">Lastpass</h3>
             </div>
             <div>
@@ -159,7 +160,7 @@
         </li>
         <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200">
             <div class="flex-1 flex flex-col p-8">
-                <img class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" style="background-color: #0e353d;" src="images/dashline.png" alt="Dashline">
+                <img id="dashline-logo" class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" src="images/dashline.png" alt="Dashline">
                 <h3 class="mt-6 text-gray-900 text-lg font-medium">Dashline</h3>
             </div>
             <div>
@@ -189,7 +190,7 @@
         </li>
         <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200">
             <div class="flex-1 flex flex-col p-8">
-                <img class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" style="background-color: #fff;" src="images/1password.svg" alt="1Password">
+                <img id="onepassword-logo" class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" src="images/1password.svg" alt="1Password">
                 <h3 class="mt-6 text-gray-900 text-lg font-medium">1Password</h3>
             </div>
             <div>
@@ -219,7 +220,7 @@
         </li>
         <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200">
             <div class="flex-1 flex flex-col p-8">
-                <img class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" style="background-color: #fff;" src="images/keeper.png" alt="Keeper">
+                <img id="keeper-logo" class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" src="images/keeper.png" alt="Keeper">
                 <h3 class="mt-6 text-gray-900 text-lg font-medium">Keeper</h3>
             </div>
             <div>
@@ -249,7 +250,7 @@
         </li>
         <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200">
           <div class="flex-1 flex flex-col p-8">
-              <img class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" style="background-color: #d3f8f7;" src="images/nordpass.png" alt="Nordpass">
+              <img id="nordpass-logo" class="w-24 h-24 flex-shrink-0 mx-auto rounded-full" src="images/nordpass.png" alt="Nordpass">
               <h3 class="mt-6 text-gray-900 text-lg font-medium">Nordpass</h3>
           </div>
           <div>
@@ -280,7 +281,7 @@
       </ul>
   </div>
 
-  <div id="dialog" class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="dialog-title" role="dialog" aria-modal="true" style="visibility: hidden;">
+  <div id="dialog" class="fixed z-10 inset-0 overflow-y-auto invisible" aria-labelledby="dialog-title" role="dialog" aria-modal="true">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
       <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
       <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>

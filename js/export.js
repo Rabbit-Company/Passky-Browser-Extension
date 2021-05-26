@@ -1,17 +1,5 @@
 check_login();
 
-console.log("URL session: " + localStorage.url);
-console.log("URL local: " + localStorage.url);
-
-console.log("Username session: " + localStorage.username);
-console.log("Username local: " + localStorage.username);
-
-console.log("Password session: " + localStorage.password);
-console.log("Password local: " + localStorage.password);
-
-console.log("Passwords session: " + localStorage.passwords);
-console.log("Passwords local: " + localStorage.passwords);
-
 function import_passky(){
 
     check_login();
