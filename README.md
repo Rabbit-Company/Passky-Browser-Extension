@@ -21,4 +21,7 @@ Please be aware that this project is still work in progress.
 5. Click on Load Unpacked and select extracted folder (opera://extensions/)
 6. Extension is now enabled (You can also pin it for easier access)
 
+### FireFox
+As Firefox still don't support manifest version 3, new extensions aren't compatible with it.
+
 Installation process will be easier when Passky extension would be added to their web store.
