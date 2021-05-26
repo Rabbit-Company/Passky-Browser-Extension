@@ -22,7 +22,7 @@ Please be aware that this project is still work in progress.
 6. Extension is now enabled (You can also pin it for easier access)
 
 ### FireFox
-As Firefox still don't support manifest version 3, new extensions aren't compatible with it.
+As Firefox isn't based on Chromium like any other website browser, we would need to make another repository dedicated to Firefox.
 
 ### Brave
 1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.2/passky-1.0.2.zip)
