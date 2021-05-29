@@ -86,6 +86,15 @@
     color: #6366F1 !important;
 }
 
+#main-menu-toggle-btn{
+    color: #9CA3AF !important;
+}
+
+#main-menu-toggle-btn:hover{
+    color: #6B7280 !important;
+    background-color: #21262D !important;
+}
+
 /*
     Border colors
 */
