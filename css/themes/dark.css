@@ -68,6 +68,25 @@
 }
 
 /*
+    Main menu
+*/
+
+.mainMenuMobileLink{
+    color: #DFE5EB !important;
+}
+
+.mainMenuMobileLink:hover{
+    background-color: #21262D !important;
+    border-color: #6B7280 !important;
+}
+
+.mainMenuMobileLinkSelected{
+    background-color: #21262D !important;
+    border-color: #6366F1 !important;
+    color: #6366F1 !important;
+}
+
+/*
     Border colors
 */
 
@@ -87,6 +106,19 @@
 .primaryBorderColor::-ms-input-placeholder { /* Microsoft Edge */
     color: #6B7280;
     opacity: 1;
+}
+
+/*
+    Import and Export buttons
+*/
+
+.importExportButtons{
+    color: #b1bfce !important;
+    border-color: #0D1117 !important;
+}
+
+.importExportButtons:hover{
+    color: #91a6ba !important;
 }
 
 /*
