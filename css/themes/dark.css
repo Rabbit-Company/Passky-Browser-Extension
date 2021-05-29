@@ -1,0 +1,106 @@
+/*
+
+    Dark theme
+
+*/
+
+/*
+    Text colors
+*/
+
+.primaryColor{
+    color: #4F46E5 !important;
+}
+
+.secondaryColor{
+    color: #6B7280 !important;
+}
+
+.tertiaryColor{
+    color: #DFE5EB !important;
+}
+
+/*
+    Background colors
+*/
+
+.primaryBackgroundColor{
+    background-color: #0D1117 !important;
+}
+
+.secondaryBackgroundColor{
+    background-color: #161B22 !important;
+}
+
+.tertiaryBackgroundColor{
+    background-color: #21262D !important;
+}
+
+/*
+    Button colors
+*/
+
+.primaryButton{
+    background-color: #4F46E5 !important;
+    color: #DFE5EB !important;
+}
+
+.primaryButton:hover{
+    background-color: #4338CA !important;
+}
+
+.successButton{
+    background-color: #059669 !important;
+    color: #DFE5EB !important;
+}
+
+.successButton:hover{
+    background-color: #047857 !important;
+}
+
+.dangerButton{
+    background-color: #DC2626 !important;
+    color: #DFE5EB !important;
+}
+
+.dangerButton:hover{
+    background-color: #B91C1C !important;
+}
+
+/*
+    Border colors
+*/
+
+.primaryBorderColor{
+    border-color: #16191d !important;
+}
+
+/*
+    Placeholder colors
+*/
+
+.primaryBorderColor::placeholder{
+    color: #6B7280;
+    opacity: 1;
+}
+
+.primaryBorderColor::-ms-input-placeholder { /* Microsoft Edge */
+    color: #6B7280;
+    opacity: 1;
+}
+
+/*
+    Scroll bar
+*/
+
+::-webkit-scrollbar-track {
+    background: #161B22;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8580e5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4E47E0;
+}
