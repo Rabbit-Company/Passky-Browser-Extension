@@ -22,10 +22,9 @@ Please be aware that this project is still work in progress.
 6. Extension is now enabled (You can also pin it for easier access)
 
 ### FireFox
-1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.2/passky-1.0.2.zip)
-2. Navigate to FireFox->Add-ons->Debug add-ons (about:debugging#/runtime/this-firefox)
-3. Click on Load Temporary Add-on and select passky-1.0.2.zip
-4. Extension is now enabled (You can also pin it for easier access)
+1. Visit Mozilla addons store and search for Passky (https://addons.mozilla.org/en-US/firefox/addon/passky/)
+2. Click on "Add to FireFox" button
+3. Passky is now installed
 
 ### Brave
 1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.2/passky-1.0.2.zip)
