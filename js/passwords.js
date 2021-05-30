@@ -7,7 +7,7 @@ function displayPasswords(){
             const decrypted_password = CryptoJS.AES.decrypt(passwords[i].password, localStorage.password).toString(CryptoJS.enc.Utf8);
             const data = passwords[i].id + " " + passwords[i].website + " " + passwords[i].username + " " + decrypted_password;
 
-            html_passwords += "<tr><td class='px-8 py-4 whitespace-nowrap'><div class='flex items-center'><div class='flex-shrink-0 h-10 w-10'>";
+            html_passwords += "<tr class='passwordsBorderColor'><td class='px-8 py-4 whitespace-nowrap'><div class='flex items-center'><div class='flex-shrink-0 h-10 w-10'>";
             //Icon
             html_passwords += "<img class='h-10 w-10 rounded-full' src='https://www.google.com/s2/favicons?domain=" + passwords[i].website + "' alt=''>";
             html_passwords += "</div><div class='ml-4'><div class='text-sm font-medium text-gray-900'>";

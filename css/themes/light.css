@@ -81,6 +81,12 @@
     Elements
 */
 
+input{
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    border-color: #D1D5DB !important;
+}
+
 textarea{
     background-color: #F3F4F6 !important;
     color: #111827 !important;
@@ -136,6 +142,18 @@ textarea{
 .primaryBorderColor::-ms-input-placeholder { /* Microsoft Edge */
     color: #6B7280;
     opacity: 1;
+}
+
+/*
+    Passwords
+*/
+
+.passwordsBackgroundColor{
+    background-color: #FFFFFF !important;
+}
+
+.passwordsBorderColor{
+    border-color: #e5e7eb !important;
 }
 
 /*
