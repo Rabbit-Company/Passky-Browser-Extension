@@ -144,6 +144,14 @@ textarea{
 }
 
 /*
+    Stroke colors
+*/
+
+.primaryStrokeColor{
+    stroke: #DFE5EB !important;
+}
+
+/*
     Passwords
 */
 
