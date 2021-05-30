@@ -67,6 +67,26 @@
     background-color: #B91C1C !important;
 }
 
+.cancelButton{
+    background-color: #FFFFFF !important;
+    border-color: #D1D5DB !important;
+    color: #374151 !important;
+}
+
+.cancelButton:hover{
+    background-color: #F9FAFB !important;
+}
+
+/*
+    Elements
+*/
+
+textarea{
+    background-color: #F3F4F6 !important;
+    color: #111827 !important;
+    border-color: #D1D5DB !important;
+}
+
 /*
     Main menu
 */

@@ -139,9 +139,9 @@ function changeDialog(style, text){
 
             document.getElementById('dialog-title').innerText = "Import from Passky";
 
-            document.getElementById('dialog-text').innerHTML = "<textarea id='import-passky-data' name='about' rows='3' class='max-w-lg bg-gray-100 shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md'></textarea>";
+            document.getElementById('dialog-text').innerHTML = "<textarea id='import-passky-data' name='about' rows='3' class='max-w-lg shadow-sm block w-full sm:text-sm rounded-md'></textarea>";
 
-            document.getElementById('dialog-button').className = "inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto sm:text-sm";
+            document.getElementById('dialog-button').className = "primaryButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
             document.getElementById('dialog-button').innerText = "Import";
             document.getElementById('dialog-button').onclick = () => import_passky();
         break;
@@ -153,7 +153,7 @@ function changeDialog(style, text){
             document.getElementById('dialog-title').innerText = "ERROR";
             document.getElementById('dialog-text').innerText = "Data in import is invalid!";
     
-            document.getElementById('dialog-button').className = "inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm";
+            document.getElementById('dialog-button').className = "dangerButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
             document.getElementById('dialog-button').innerText = "Try again";
             document.getElementById('dialog-button').onclick = () => changeDialog(text);
         break;
@@ -165,7 +165,7 @@ function changeDialog(style, text){
             document.getElementById('dialog-title').innerText = "SUCCESS";
             document.getElementById('dialog-text').innerText = text;
     
-            document.getElementById('dialog-button').className = "inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:w-auto sm:text-sm";
+            document.getElementById('dialog-button').className = "successButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
             document.getElementById('dialog-button').innerText = "Okay";
             document.getElementById('dialog-button').onclick = () => refreshPasswords();
         break;
@@ -177,7 +177,7 @@ function changeDialog(style, text){
             document.getElementById('dialog-title').innerText = "ERROR";
             document.getElementById('dialog-text').innerText = text;
     
-            document.getElementById('dialog-button').className = "inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm";
+            document.getElementById('dialog-button').className = "dangerButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
             document.getElementById('dialog-button').innerText = "Okay";
             document.getElementById('dialog-button').onclick = () => hide('dialog');
         break;
