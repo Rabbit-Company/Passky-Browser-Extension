@@ -1,3 +1,11 @@
+if(localStorage.theme == null || typeof(localStorage.theme) == 'undefined') localStorage.theme = 0;
+
+if(localStorage.theme == 0){
+    document.getElementById("css-theme").href = "css/themes/light.css";
+}else{
+    document.getElementById("css-theme").href = "css/themes/dark.css";
+}
+
 function hide(element){
     document.getElementById(element).style.visibility = 'hidden';
 }
@@ -23,10 +31,10 @@ function validEmail(mail){
 }
 
 function check_login(){
-    if(localStorage.url == null && typeof(localStorage.url) == 'undefined') window.location.href = 'index.html';
-    if(localStorage.username == null && typeof(localStorage.username) == 'undefined') window.location.href = 'index.html';
-    if(localStorage.password == null && typeof(localStorage.password) == 'undefined') window.location.href = 'index.html';
-    if(localStorage.passwords == null && typeof(localStorage.passwords) == 'undefined') window.location.href = 'index.html';
+    if(localStorage.url == null || typeof(localStorage.url) == 'undefined') window.location.href = 'index.html';
+    if(localStorage.username == null || typeof(localStorage.username) == 'undefined') window.location.href = 'index.html';
+    if(localStorage.password == null || typeof(localStorage.password) == 'undefined') window.location.href = 'index.html';
+    if(localStorage.passwords == null || typeof(localStorage.passwords) == 'undefined') window.location.href = 'index.html';
 }
 
 function animateButton(id, enabled){
@@ -47,6 +55,22 @@ function toggleMenu(){
         document.getElementById('mobile-menu').className = 'hidden pt-2 pb-3 space-y-1';
         document.getElementById('mobile-menu-icon').innerHTML = "<path stroke='none' d='M0 0h24v24H0z' fill='none'/><line x1='4' y1='6' x2='20' y2='6' /><line x1='4' y1='12' x2='20' y2='12' /><line x1='4' y1='18' x2='20' y2='18' />";
     }
+}
+
+function changeTheme(){
+    if(localStorage.theme == 0){
+        document.getElementById("css-theme").href = "css/themes/dark.css";
+        document.getElementById("theme-link").innerText = "Theme (Dark)";
+        document.getElementById("theme-link-mobile").innerText = "Theme (Dark)";
+        localStorage.theme = 1;
+    }else{
+        document.getElementById("css-theme").href = "css/themes/light.css";
+        document.getElementById("theme-link").innerText = "Theme (Light)";
+        document.getElementById("theme-link-mobile").innerText = "Theme (Light)";
+        localStorage.theme = 0;
+    }
+
+    console.log("Theme: " + localStorage.theme);
 }
 
 function copyToClipboard(text){

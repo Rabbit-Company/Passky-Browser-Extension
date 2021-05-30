@@ -80,6 +80,14 @@ document.getElementById("signout-link-mobile").addEventListener("click", () => {
     logout();
 });
 
+document.getElementById("theme-link").addEventListener("click", () => {
+    changeTheme();
+});
+
+document.getElementById("theme-link-mobile").addEventListener("click", () => {
+    changeTheme();
+});
+
 document.getElementById("main-menu-toggle-btn").addEventListener("click", () => {
     toggleMenu();
 });
