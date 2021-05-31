@@ -106,28 +106,28 @@ function updateGeneratedPassword(upper, number, special){
     let numbers = "1234567890";
     let specials = "!@#$%?&*";
 
-    for (let i = 0; i < length; i++) password += lowers.charAt(Math.floor(Math.random() * lowers.length));
+    for (let i = 0; i < length; i++) password += lowers.charAt(randRange(0, lowers.length));
 
     password = password.split("");
 
     if(upper){
         let upper_amount = Math.floor(length / 2 - Math.random() * (length / 2) + 1);
         for(let i = 0; i < upper_amount; i++){
-            password[Math.floor(Math.random() * password.length)] = uppers.charAt(Math.floor(Math.random() * uppers.length));
+            password[randRange(0, password.length)] = uppers.charAt(randRange(0, uppers.length));
         }
     }
 
     if(number){
         let number_amount = Math.floor(length / 2 - Math.random() * (length / 2) + 1);
         for(let i = 0; i < number_amount; i++){
-            password[Math.floor(Math.random() * password.length)] = numbers.charAt(Math.floor(Math.random() * numbers.length));
+            password[randRange(0, password.length)] = numbers.charAt(randRange(0, numbers.length));
         }
     }
 
     if(special){
-        let special_amount = Math.floor(Math.random(3) + 1);
+        let special_amount = randRange(1, 3);
         for(let i = 0; i < special_amount; i++){
-            password[Math.floor(Math.random() * password.length)] = specials.charAt(Math.floor(Math.random() * specials.length));
+            password[randRange(0, password.length)] = specials.charAt(randRange(0, specials.length));
         }
     }
 
