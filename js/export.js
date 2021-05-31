@@ -88,7 +88,8 @@ function import_lastpass(){
     for(let i = 1, j = 0; i < ido.length; i++){
         let data_line = ido[i].split(',');
         
-        let website = data_line[0].replace("http://", "").replace("https://", "");
+        let website = data_line[0].replace("http://", "").replace("https://", "").replace("www.", "");
+        if(website.slice(-1) == '/') website = website.slice(0, -1);
         let username = data_line[1];
         let password = data_line[2];
 
@@ -155,7 +156,8 @@ function import_bitwarden(){
     for(let i = 0, j = 0; i < ido["items"].length; i++){
         if(ido["items"][i]["type"] != 1) continue;
 
-        let website = ido["items"][i]["login"]["uris"][0]["uri"].replace("http://", "").replace("https://", "");
+        let website = ido["items"][i]["login"]["uris"][0]["uri"].replace("http://", "").replace("https://", "").replace("www.", "");
+        if(website.slice(-1) == '/') website = website.slice(0, -1);
         let username = ido["items"][i]["login"]["username"];
         let password = ido["items"][i]["login"]["password"];
 
