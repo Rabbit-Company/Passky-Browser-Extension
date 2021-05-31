@@ -1,10 +1,9 @@
 {
   "name": "Passky",
   "description": "Simple and secure password manager",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "manifest_version": 2,
   "author": "Rabbit Company LLC",
-  "permissions": ["storage", "activeTab"],
   "browser_action": {
     "default_icon": "/images/logo32.png",
     "default_title": "Passky",
