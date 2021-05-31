@@ -72,13 +72,13 @@
 }
 
 .cancelButton{
-    background-color: #FFFFFF !important;
-    border-color: #D1D5DB !important;
-    color: #374151 !important;
+    background-color: #21262D !important;
+    border-color: #161B22 !important;
+    color: #DFE5EB !important;
 }
 
 .cancelButton:hover{
-    background-color: #F9FAFB !important;
+    background-color: #2b323b !important;
 }
 
 /*

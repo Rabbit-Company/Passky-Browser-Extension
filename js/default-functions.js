@@ -1,11 +1,3 @@
-if(localStorage.theme == null || typeof(localStorage.theme) == 'undefined') localStorage.theme = 0;
-
-if(localStorage.theme == 0){
-    document.getElementById("css-theme").href = "css/themes/light.css";
-}else{
-    document.getElementById("css-theme").href = "css/themes/dark.css";
-}
-
 function hide(element){
     document.getElementById(element).style.visibility = 'hidden';
 }
@@ -59,14 +51,14 @@ function toggleMenu(){
 
 function changeTheme(){
     if(localStorage.theme == 0){
-        document.getElementById("css-theme").href = "css/themes/dark.css";
-        document.getElementById("theme-link").innerText = "Theme (Dark)";
-        document.getElementById("theme-link-mobile").innerText = "Theme (Dark)";
-        localStorage.theme = 1;
-    }else{
         document.getElementById("css-theme").href = "css/themes/light.css";
         document.getElementById("theme-link").innerText = "Theme (Light)";
         document.getElementById("theme-link-mobile").innerText = "Theme (Light)";
+        localStorage.theme = 1;
+    }else{
+        document.getElementById("css-theme").href = "css/themes/dark.css";
+        document.getElementById("theme-link").innerText = "Theme (Dark)";
+        document.getElementById("theme-link-mobile").innerText = "Theme (Dark)";
         localStorage.theme = 0;
     }
 
