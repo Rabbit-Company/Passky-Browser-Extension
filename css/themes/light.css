@@ -101,6 +101,20 @@ textarea{
     Main menu
 */
 
+.mainMenuLink{
+    color: #4B5563 !important;
+}
+
+.mainMenuLink:hover{
+    color: #1F2937 !important;
+    border-color: #D1D5DB !important;
+}
+
+.mainMenuLinkSelected{
+    color: #1F2937 !important;
+    border-color: #6366F1 !important;
+}
+
 .mainMenuMobileLink{
     color: #4B5563 !important;
 }

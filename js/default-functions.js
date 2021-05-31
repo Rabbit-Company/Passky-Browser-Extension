@@ -61,8 +61,6 @@ function changeTheme(){
         document.getElementById("theme-link-mobile").innerText = "Theme (Dark)";
         localStorage.theme = 0;
     }
-
-    console.log("Theme: " + localStorage.theme);
 }
 
 function copyToClipboard(text){
