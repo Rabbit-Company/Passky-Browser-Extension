@@ -6,7 +6,7 @@ Please be aware that this project is still work in progress.
 
 ## Installation
 ### Chrome
-1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.3/passky-1.0.3.zip)
+1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.4/passky-1.0.4.zip)
 2. Extract .zip file 
 3. Navigate to Chrome->More Tools->Extensions (chrome://extensions/)
 4. Turn on developer mode (Top right corner)
@@ -14,7 +14,7 @@ Please be aware that this project is still work in progress.
 6. Extension is now enabled (You can also pin it for easier access)
 
 ### Opera
-1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.3/passky-1.0.3.zip)
+1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.4/passky-1.0.4.zip)
 2. Extract .zip file
 3. Navigate to Opera->Extensions->Manage extensions
 4. Turn on developer mode (Top right corner)
@@ -27,7 +27,7 @@ Please be aware that this project is still work in progress.
 3. Passky is now installed
 
 ### Brave
-1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.3/passky-1.0.3.zip)
+1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.4/passky-1.0.4.zip)
 2. Extract .zip file
 3. Navigate to Brave->Settings->Extenstions (brave://extensions/)
 4. Turn on developer mode (Top right corner)
@@ -35,7 +35,7 @@ Please be aware that this project is still work in progress.
 6. Extension is now enabled (You can also pin it for easier access)
 
 ### Vivaldi
-1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.3/passky-1.0.3.zip)
+1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.4/passky-1.0.4.zip)
 2. Extract .zip file
 3. Navigate to Extenstions (vivaldi://extensions/)
 4. Turn on developer mode (Top right corner)
