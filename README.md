@@ -6,20 +6,14 @@ Please be aware that this project is still work in progress.
 
 ## Installation
 ### Chrome
-1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.4/passky-1.0.4.zip)
-2. Extract .zip file 
-3. Navigate to Chrome->More Tools->Extensions (chrome://extensions/)
-4. Turn on developer mode (Top right corner)
-5. Click on Load Unpacked and select extracted folder
-6. Extension is now enabled (You can also pin it for easier access)
+1. Visit Chrome web store and search for Passky (https://chrome.google.com/webstore/detail/passky/ngncpgfjhnkgfcjamgljadegplonbihi)
+2. Click on "Add to Chrome" button
+3. Passky is now installed
 
 ### Opera
-1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.4/passky-1.0.4.zip)
-2. Extract .zip file
-3. Navigate to Opera->Extensions->Manage extensions
-4. Turn on developer mode (Top right corner)
-5. Click on Load Unpacked and select extracted folder (opera://extensions/)
-6. Extension is now enabled (You can also pin it for easier access)
+1. Visit Chrome web store and search for Passky (https://chrome.google.com/webstore/detail/passky/ngncpgfjhnkgfcjamgljadegplonbihi)
+2. Click on "Add to Chrome" button
+3. Passky is now installed
 
 ### FireFox
 1. Visit Mozilla addons store and search for Passky (https://addons.mozilla.org/en-US/firefox/addon/passky/)
@@ -27,19 +21,13 @@ Please be aware that this project is still work in progress.
 3. Passky is now installed
 
 ### Brave
-1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.4/passky-1.0.4.zip)
-2. Extract .zip file
-3. Navigate to Brave->Settings->Extenstions (brave://extensions/)
-4. Turn on developer mode (Top right corner)
-5. Click on Load Unpacked and select extracted folder
-6. Extension is now enabled (You can also pin it for easier access)
+1. Visit Chrome web store and search for Passky (https://chrome.google.com/webstore/detail/passky/ngncpgfjhnkgfcjamgljadegplonbihi)
+2. Click on "Add to Chrome" button
+3. Passky is now installed
 
 ### Vivaldi
-1. Download extension (https://github.com/Rabbit-Company/Passky-Browser-Extension/releases/download/v1.0.4/passky-1.0.4.zip)
-2. Extract .zip file
-3. Navigate to Extenstions (vivaldi://extensions/)
-4. Turn on developer mode (Top right corner)
-5. Click on Load Unpacked and select extracted folder
-6. Extension is now enabled (You can also pin it for easier access)
+1. Visit Chrome web store and search for Passky (https://chrome.google.com/webstore/detail/passky/ngncpgfjhnkgfcjamgljadegplonbihi)
+2. Click on "Add to Chrome" button
+3. Passky is now installed
 
 Installation process will be easier when Passky extension would be added to their web store.
