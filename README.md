@@ -29,5 +29,3 @@ Please be aware that this project is still work in progress.
 1. Visit Chrome web store and search for Passky (https://chrome.google.com/webstore/detail/passky/ngncpgfjhnkgfcjamgljadegplonbihi)
 2. Click on "Add to Vivaldi" button
 3. Passky is now installed
-
-Installation process will be easier when Passky extension would be added to their web store.
