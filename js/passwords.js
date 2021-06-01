@@ -301,6 +301,14 @@ function changeDialog(style, text){
                 document.getElementById("website").value = data[1];
                 document.getElementById("username").value = data[2];
                 document.getElementById("password").value = data[3];
+            }else{
+                try{
+                    chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+                        if(tabs[0].url !== null && typeof(tabs[0].url) !== 'undefined'){
+                            document.getElementById("website").value = new URL(tabs[0].url).hostname.replace("www.", "");
+                        }
+                    });
+                }catch{}
             }
 
             document.getElementById('btn-password-generator').onclick = () => changeDialog(5, "-1" + " " + document.getElementById("website").value + " " + document.getElementById("username").value + " " + document.getElementById("password").value);
