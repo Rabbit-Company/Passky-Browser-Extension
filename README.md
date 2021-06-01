@@ -12,7 +12,7 @@ Please be aware that this project is still work in progress.
 
 ### Opera
 1. Visit Chrome web store and search for Passky (https://chrome.google.com/webstore/detail/passky/ngncpgfjhnkgfcjamgljadegplonbihi)
-2. Click on "Add to Chrome" button
+2. Click on "Add to Opera" button
 3. Passky is now installed
 
 ### FireFox
@@ -22,12 +22,12 @@ Please be aware that this project is still work in progress.
 
 ### Brave
 1. Visit Chrome web store and search for Passky (https://chrome.google.com/webstore/detail/passky/ngncpgfjhnkgfcjamgljadegplonbihi)
-2. Click on "Add to Chrome" button
+2. Click on "Add to Brave" button
 3. Passky is now installed
 
 ### Vivaldi
 1. Visit Chrome web store and search for Passky (https://chrome.google.com/webstore/detail/passky/ngncpgfjhnkgfcjamgljadegplonbihi)
-2. Click on "Add to Chrome" button
+2. Click on "Add to Vivaldi" button
 3. Passky is now installed
 
 Installation process will be easier when Passky extension would be added to their web store.
