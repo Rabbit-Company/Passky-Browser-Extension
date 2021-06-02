@@ -52,15 +52,27 @@ function toggleMenu(){
 function changeTheme(){
     if(localStorage.theme == 0){
         document.getElementById("css-theme").href = "css/themes/light.css";
-        document.getElementById("theme-link").innerText = "Theme (Light)";
-        document.getElementById("theme-link-mobile").innerText = "Theme (Light)";
+        document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Light)";
+        document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Light)";
         localStorage.theme = 1;
     }else{
         document.getElementById("css-theme").href = "css/themes/dark.css";
-        document.getElementById("theme-link").innerText = "Theme (Dark)";
-        document.getElementById("theme-link-mobile").innerText = "Theme (Dark)";
+        document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Dark)";
+        document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Dark)";
         localStorage.theme = 0;
     }
+}
+
+function changeLanguage(){
+    switch(localStorage.lang){
+        case "en":
+            localStorage.lang = "sl";
+        break;
+        default:
+            localStorage.lang = "en";
+        break;
+    }
+    location.reload();
 }
 
 function copyToClipboard(text){
