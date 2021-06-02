@@ -1,7 +1,7 @@
 {
   "name": "Passky",
   "description": "Simple and secure password manager",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "manifest_version": 2,
   "author": "Rabbit Company LLC",
   "permissions": ["clipboardWrite", "tabs"],
