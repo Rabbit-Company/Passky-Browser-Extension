@@ -10,13 +10,24 @@ document.getElementById("import-export-link-mobile").innerText = lang["import_ex
 document.getElementById("theme-link-mobile").innerText = lang["theme"];
 document.getElementById("signout-link-mobile").innerText = lang["signout"];
 
-document.getElementById("passky-import-btn").innerText = lang["import"];
-document.getElementById("lastpass-import-btn").innerText = lang["import"];
-document.getElementById("bitwarden-import-btn").innerText = lang["import"];
-document.getElementById("dashline-import-btn").innerText = lang["import"];
-document.getElementById("onepassword-import-btn").innerText = lang["import"];
-document.getElementById("keeper-import-btn").innerText = lang["import"];
-document.getElementById("nordpass-import-btn").innerText = lang["import"];
+document.getElementById("passky-backup-btn-text").innerText = lang["backup"];
+
+document.getElementById("passky-import-btn-text").innerText = lang["import"];
+document.getElementById("lastpass-import-btn-text").innerText = lang["import"];
+document.getElementById("bitwarden-import-btn-text").innerText = lang["import"];
+document.getElementById("dashline-import-btn-text").innerText = lang["import"];
+document.getElementById("onepassword-import-btn-text").innerText = lang["import"];
+document.getElementById("keeper-import-btn-text").innerText = lang["import"];
+document.getElementById("nordpass-import-btn-text").innerText = lang["import"];
+
+document.getElementById("passky-export-btn-text").innerText = lang["export"];
+document.getElementById("lastpass-export-btn-text").innerText = lang["export"];
+document.getElementById("dashline-export-btn-text").innerText = lang["export"];
+document.getElementById("onepassword-export-btn-text").innerText = lang["export"];
+document.getElementById("keeper-export-btn-text").innerText = lang["export"];
+document.getElementById("nordpass-export-btn-text").innerText = lang["export"];
+
+document.getElementById("dialog-button-cancel").innerText = lang["cancel"];
 
 function import_passky(){
 
