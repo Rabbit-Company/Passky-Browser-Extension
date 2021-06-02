@@ -50,16 +50,19 @@ function toggleMenu(){
 }
 
 function changeTheme(){
-    if(localStorage.theme == 0){
-        document.getElementById("css-theme").href = "css/themes/light.css";
-        document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Light)";
-        document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Light)";
-        localStorage.theme = 1;
-    }else{
-        document.getElementById("css-theme").href = "css/themes/dark.css";
-        document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Dark)";
-        document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Dark)";
-        localStorage.theme = 0;
+    switch(localStorage.theme){
+        case "dark":
+            document.getElementById("css-theme").href = "css/themes/light.css";
+            document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Light)";
+            document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Light)";
+            localStorage.theme = "light";
+        break;
+        default:
+            document.getElementById("css-theme").href = "css/themes/dark.css";
+            document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Dark)";
+            document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Dark)";
+            localStorage.theme = "dark";
+        break;
     }
 }
 

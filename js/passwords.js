@@ -1,21 +1,30 @@
 document.getElementById("passwords-link").innerText = lang[localStorage.lang]["passwords"];
 document.getElementById("import-export-link").innerText = lang[localStorage.lang]["import_export"];
-document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"];
 document.getElementById("signout-link").innerText = lang[localStorage.lang]["signout"];
 
 document.getElementById("passwords-link-mobile").innerText = lang[localStorage.lang]["passwords"];
 document.getElementById("import-export-link-mobile").innerText = lang[localStorage.lang]["import_export"];
-document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"];
 document.getElementById("signout-link-mobile").innerText = lang[localStorage.lang]["signout"];
+
+switch(localStorage.theme){
+    case "light":
+        document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Light)";
+        document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Light)";
+    break;
+    default:
+        document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Dark)";
+        document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Dark)";
+    break;
+}
 
 switch(localStorage.lang){
     case "sl":
-        document.getElementById("lang-link").innerText = "Slovenian";
-        document.getElementById("lang-link-mobile").innerText = "Slovenian";
+        document.getElementById("lang-link").innerText = "Language (Slovenian)";
+        document.getElementById("lang-link-mobile").innerText = "Language (Slovenian)";
     break;
     default:
-        document.getElementById("lang-link").innerText = "English";
-        document.getElementById("lang-link-mobile").innerText = "English";
+        document.getElementById("lang-link").innerText = "Language (English)";
+        document.getElementById("lang-link-mobile").innerText = "Language (English)";
     break;
 }
 
