@@ -29,6 +29,9 @@ const lang = {
     "search": "Search",
     "length": "Length",
     "add_password": "Add password",
+    "add_password_success": "Password has been added successfully",
+    "change_password_success": "Password has been changed successfully",
+    "remove_password_success": "Password has been removed successfully",
     "edit_password": "Edit password",
     "password_generator": "Password Generator",
     "delete_password": "Delete password",
@@ -40,7 +43,13 @@ const lang = {
     "server_unreachable": "Server is unreachable!",
     "registration_completed": "Registration is completed!",
     "dont_have_account_link": "Don't have account yet? Sign up here.",
-    "already_have_account_link": "Already have account? Sign in here."
+    "already_have_account_link": "Already have account? Sign in here.",
+    "username_validation": "Username must be between 3 and 255 character long and can't contain spaces!",
+    "username_validation2": "Username can't contains provided special characters: ' \" \\",
+    "password_validation": "Password must be between 8 and 255 character long and can't contain spaces!",
+    "password_validation2": "Password can't contains provided special characters: ' \" \\",
+    "website_validation": "Website much be between 5 and 255 character long and can't contain spaces!",
+    "website_validation2": "Website can't contains provided special characters: ' \" \\"
 }
 
 const errors = {

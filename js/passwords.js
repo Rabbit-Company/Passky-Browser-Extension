@@ -188,13 +188,13 @@ function changeDialog(style, text){
     
             document.getElementById('dialog-title').innerText = lang["success"];
 
-            let message = "Password has been added successfully";
+            let message = lang["add_password_success"];
             switch(text){
                 case 1: 
-                    message = "Password has been changed successfully";
+                    message = lang["change_password_success"];
                 break;
                 case 2:
-                    message = "Password has been removed successfully";
+                    message = lang["remove_password_success"];
                 break;
             }
             document.getElementById('dialog-text').innerText = message;
@@ -286,11 +286,11 @@ function changeDialog(style, text){
             document.getElementById('dialog-icon').className = "mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10";
             document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-red-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' aria-hidden='true'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z' /></svg>";
     
-            document.getElementById('dialog-title').innerText = "Delete password";
-            document.getElementById('dialog-text').innerText = "Are you sure you want to delete your password? Your password will be permanently removed from server forever. This action cannot be undone.";
+            document.getElementById('dialog-title').innerText = lang["delete_password"];
+            document.getElementById('dialog-text').innerText = lang["delete_password_confirmation"];
     
             document.getElementById('dialog-button').className = "dangerButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
-            document.getElementById('dialog-button').innerText = "Delete";
+            document.getElementById('dialog-button').innerText = lang["delete"];
             document.getElementById('dialog-button').onclick = () => deletePassword(text);
         break;
         default:
@@ -298,12 +298,12 @@ function changeDialog(style, text){
             document.getElementById('dialog-icon').className = "mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10";
             document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-blue-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><circle cx='8' cy='15' r='4' /><line x1='10.85' y1='12.15' x2='19' y2='4' /><line x1='18' y1='5' x2='20' y2='7' /><line x1='15' y1='8' x2='17' y2='10' /></svg>";
 
-            document.getElementById('dialog-title').innerText = "Add password";
+            document.getElementById('dialog-title').innerText = lang["add_password"];
 
             document.getElementById('dialog-text').innerHTML = "<div class='rounded-md shadow-sm -space-y-px'><div><label for='website' class='sr-only'>Website</label><input id='website' name='website' type='text' autocomplete='website' required class='appearance-none rounded-none relative block w-full px-3 py-2 border rounded-t-md focus:outline-none focus:z-10 sm:text-sm' placeholder='Website'></div><div><label for='username' class='sr-only'>Username</label><input id='username' name='username' type='text' autocomplete='username' required class='appearance-none rounded-none relative block w-full px-3 py-2 border focus:outline-none sm:text-sm' placeholder='Username'></div><div><div class='flex rounded-md shadow-sm'><div class='relative flex items-stretch flex-grow focus-within:z-10'><input id='password' name='password' type='password' autocomplete='current-password' required class='appearance-none rounded-none relative block w-full px-3 py-2 border rounded-bl-md focus:outline-none sm:text-sm' placeholder='Password'></div><button id='btn-password-generator' class='secondaryColor tertiaryBackgroundColor primaryBorderColor -ml-px relative inline-flex items-center space-x-2 px-4 py-2 border text-sm font-medium rounded-br-md focus:outline-none'><svg xmlns='http://www.w3.org/2000/svg' class='primaryStrokeColor' width='24' height='24' viewBox='0 0 24 24' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><rect x='3' y='3' width='6' height='6' rx='1' /><rect x='15' y='15' width='6' height='6' rx='1' /><path d='M21 11v-3a2 2 0 0 0 -2 -2h-6l3 3m0 -6l-3 3' /><path d='M3 13v3a2 2 0 0 0 2 2h6l-3 -3m0 6l3 -3' /></svg></button></div></div>";
 
             document.getElementById('dialog-button').className = "primaryButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
-            document.getElementById('dialog-button').innerText = "Add";
+            document.getElementById('dialog-button').innerText = lang["add"];
             document.getElementById('dialog-button').onclick = () => addPassword();
 
             if(text != null){
@@ -327,6 +327,8 @@ function changeDialog(style, text){
 }
 
 function addPassword(){
+    check_login();
+
     const website = document.getElementById("website").value;
     const username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
@@ -334,37 +336,32 @@ function addPassword(){
     if(website.length == 0 || username.length == 0 || password.length == 0) return;
 
     if(!(username.length >= 3 && username.length <= 255) || username.includes(" ")){
-        changeDialog(2, "Username must be between 3 and 255 character long and can't contain spaces!");
+        changeDialog(2, lang["username_validation"]);
         return;
     }
 
     if(username.includes("'") || username.includes('"') || username.includes("\\")){
-        changeDialog(2, "Username can't contains provided special characters: ' \" \\");
+        changeDialog(2, lang["username_validation2"]);
         return;
     }
 
     if(!(password.length >= 8 && password.length <= 255) || password.includes(" ")){
-        changeDialog(2, "Password must be between 8 and 255 character long and can't contain spaces!");
+        changeDialog(2, lang["password_validation"]);
         return;
     }
 
     if(password.includes("'") || password.includes('"') || password.includes("\\")){
-        changeDialog(2, "Password can't contains provided special characters: ' \" \\");
+        changeDialog(2, lang["password_validation2"]);
         return;
     }
 
     if(!(website.length >= 5 && website.length <= 255) || website.includes(" ")){
-        changeDialog(2, "Website much be between 5 and 255 character long and can't contain spaces!");
+        changeDialog(2, lang["website_validation"]);
         return;
     }
 
     if(website.includes("'") || website.includes('"') || website.includes("\\")){
-        changeDialog(2, "Website can't contains provided special characters: ' \" \\");
-        return;
-    }
-
-    if(localStorage.url === null || typeof(localStorage.url) === 'undefined' || localStorage.username === null || typeof(localStorage.username) === 'undefined' || localStorage.password === null || typeof(localStorage.password) === 'undefined'){
-        changeDialog(2, "Session has expired please sign in again!");
+        changeDialog(2, lang["website_validation2"]);
         return;
     }
 
@@ -405,6 +402,8 @@ function addPassword(){
 }
 
 function editPassword(password_id){
+    check_login();
+
     const website = document.getElementById("website").value;
     const username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
@@ -412,37 +411,32 @@ function editPassword(password_id){
     if(password_id.length == 0 || website.length == 0 || username.length == 0 || password.length == 0) return;
 
     if(!(username.length >= 3 && username.length <= 255) || username.includes(" ")){
-        changeDialog(2, "Username must be between 3 and 255 character long and can't contain spaces!");
+        changeDialog(2, lang["username_validation"]);
         return;
     }
 
     if(username.includes("'") || username.includes('"') || username.includes("\\")){
-        changeDialog(2, "Username can't contains provided special characters: ' \" \\");
+        changeDialog(2, lang["username_validation2"]);
         return;
     }
 
     if(!(password.length >= 8 && password.length <= 255) || password.includes(" ")){
-        changeDialog(2, "Password must be between 8 and 255 character long and can't contain spaces!");
+        changeDialog(2, lang["password_validation"]);
         return;
     }
 
     if(password.includes("'") || password.includes('"') || password.includes("\\")){
-        changeDialog(2, "Password can't contains provided special characters: ' \" \\");
+        changeDialog(2, lang["password_validation2"]);
         return;
     }
 
     if(!(website.length >= 5 && website.length <= 255) || website.includes(" ")){
-        changeDialog(2, "Website much be between 5 and 255 character long and can't contain spaces!");
+        changeDialog(2, lang["website_validation"]);
         return;
     }
 
     if(website.includes("'") || website.includes('"') || website.includes("\\")){
-        changeDialog(2, "Website can't contains provided special characters: ' \" \\");
-        return;
-    }
-
-    if(localStorage.url === null || typeof(localStorage.url) === 'undefined' || localStorage.username === null || typeof(localStorage.username) === 'undefined' || localStorage.password === null || typeof(localStorage.password) === 'undefined'){
-        changeDialog(2, "Session has expired please sign in again!");
+        changeDialog(2, lang["website_validation2"]);
         return;
     }
 
