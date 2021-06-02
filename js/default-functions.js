@@ -69,6 +69,9 @@ function changeTheme(){
 function changeLanguage(){
     switch(localStorage.lang){
         case "en":
+            localStorage.lang = "nl";
+        break;
+        case "nl":
             localStorage.lang = "sl";
         break;
         default:
