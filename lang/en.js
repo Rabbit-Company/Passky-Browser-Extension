@@ -1,5 +1,6 @@
 const lang = {
     "server": "Server",
+    "website": "Website",
     "username": "Username",
     "email": "Email",
     "password": "Password",
