@@ -1,5 +1,23 @@
 check_login();
 
+document.getElementById("passwords-link").innerText = lang["passwords"];
+document.getElementById("import-export-link").innerText = lang["import_export"];
+document.getElementById("theme-link").innerText = lang["theme"];
+document.getElementById("signout-link").innerText = lang["signout"];
+
+document.getElementById("passwords-link-mobile").innerText = lang["passwords"];
+document.getElementById("import-export-link-mobile").innerText = lang["import_export"];
+document.getElementById("theme-link-mobile").innerText = lang["theme"];
+document.getElementById("signout-link-mobile").innerText = lang["signout"];
+
+document.getElementById("passky-import-btn").innerText = lang["import"];
+document.getElementById("lastpass-import-btn").innerText = lang["import"];
+document.getElementById("bitwarden-import-btn").innerText = lang["import"];
+document.getElementById("dashline-import-btn").innerText = lang["import"];
+document.getElementById("onepassword-import-btn").innerText = lang["import"];
+document.getElementById("keeper-import-btn").innerText = lang["import"];
+document.getElementById("nordpass-import-btn").innerText = lang["import"];
+
 function import_passky(){
 
     check_login();
@@ -196,7 +214,7 @@ function import_data(passwords){
 
         if(xhr.readyState === 4){
             if(xhr.status != 200){
-                changeDialog(0, "Server is unreachable!");
+                changeDialog(0, lang["server_unreachable"]);
                 show('dialog');
                 return;
             }
@@ -204,7 +222,7 @@ function import_data(passwords){
             var json = JSON.parse(xhr.responseText);
 
             if(typeof json['error'] === 'undefined'){
-                changeDialog(0, "Server is unreachable!");
+                changeDialog(0, lang["server_unreachable"]);
                 show('dialog');
                 return;
             }
@@ -217,10 +235,10 @@ function import_data(passwords){
 
             if(json['error'] == 0){
                 if(json['import_error'] == 0){
-                    changeDialog(3, json['import_success'] + " passwords has been successfully imported!");
+                    changeDialog(3, lang["import_success"].replace("{success_number}", json['import_success']));
                     show('dialog');
                 }else{
-                    changeDialog(3, json['import_success'] + " passwords has been successfully imported, but " + json['import_error'] + " passwords has not been imported!");
+                    changeDialog(3, lang["import_errors"].replace("{success_number}", json['import_success']).replace("{error_number}", json['import_error']));
                     show('dialog');
                 }
             }
@@ -240,19 +258,19 @@ function changeDialog(style, text, text2){
             document.getElementById('dialog-text').innerHTML = "<textarea id='import-data' name='about' rows='3' class='max-w-lg shadow-sm block w-full sm:text-sm rounded-md'></textarea>";
 
             document.getElementById('dialog-button').className = "primaryButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
-            document.getElementById('dialog-button').innerText = "Import";
+            document.getElementById('dialog-button').innerText = lang["import"];
 
             switch(text){
                 case 0:
-                    document.getElementById('dialog-title').innerText = "Import from Passky";
+                    document.getElementById('dialog-title').innerText = lang["import_from"].replace("Passky");
                     document.getElementById('dialog-button').onclick = () => import_passky();
                 break;
                 case 1:
-                    document.getElementById('dialog-title').innerText = "Import from Lastpass";
+                    document.getElementById('dialog-title').innerText = lang["import_from"].replace("Lastpass");
                     document.getElementById('dialog-button').onclick = () => import_lastpass();
                 break;
                 case 2:
-                    document.getElementById('dialog-title').innerText = "Import from Bitwarden";
+                    document.getElementById('dialog-title').innerText = lang["import_from"].replace("Bitwarden");
                     document.getElementById('dialog-button').onclick = () => import_bitwarden();
                 break;
             }
@@ -262,11 +280,11 @@ function changeDialog(style, text, text2){
             document.getElementById('dialog-icon').className = "mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10";
             document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-red-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z' /></svg>";
     
-            document.getElementById('dialog-title').innerText = "ERROR";
-            document.getElementById('dialog-text').innerText = "Data in import is invalid!";
+            document.getElementById('dialog-title').innerText = lang["error"];
+            document.getElementById('dialog-text').innerText = lang["import_invalid"];
     
             document.getElementById('dialog-button').className = "dangerButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
-            document.getElementById('dialog-button').innerText = "Try again";
+            document.getElementById('dialog-button').innerText = lang["try_again"];
             document.getElementById('dialog-button').onclick = () => changeDialog(text, text2);
         break;
         case 3:
@@ -274,11 +292,11 @@ function changeDialog(style, text, text2){
             document.getElementById('dialog-icon').className = "mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100";
             document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-green-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' aria-hidden='true'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 13l4 4L19 7' /></svg>";
     
-            document.getElementById('dialog-title').innerText = "SUCCESS";
+            document.getElementById('dialog-title').innerText = lang["success"];
             document.getElementById('dialog-text').innerText = text;
     
             document.getElementById('dialog-button').className = "successButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
-            document.getElementById('dialog-button').innerText = "Okay";
+            document.getElementById('dialog-button').innerText = lang["okay"];
             document.getElementById('dialog-button').onclick = () => refreshPasswords();
         break;
         default:
@@ -286,11 +304,11 @@ function changeDialog(style, text, text2){
             document.getElementById('dialog-icon').className = "mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10";
             document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-red-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z' /></svg>";
     
-            document.getElementById('dialog-title').innerText = "ERROR";
+            document.getElementById('dialog-title').innerText = lang["error"];
             document.getElementById('dialog-text').innerText = text;
     
             document.getElementById('dialog-button').className = "dangerButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
-            document.getElementById('dialog-button').innerText = "Okay";
+            document.getElementById('dialog-button').innerText = lang["okay"];
             document.getElementById('dialog-button').onclick = () => hide('dialog');
         break;
     }

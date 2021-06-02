@@ -1,3 +1,13 @@
+document.getElementById("passwords-link").innerText = lang["passwords"];
+document.getElementById("import-export-link").innerText = lang["import_export"];
+document.getElementById("theme-link").innerText = lang["theme"];
+document.getElementById("signout-link").innerText = lang["signout"];
+
+document.getElementById("passwords-link-mobile").innerText = lang["passwords"];
+document.getElementById("import-export-link-mobile").innerText = lang["import_export"];
+document.getElementById("theme-link-mobile").innerText = lang["theme"];
+document.getElementById("signout-link-mobile").innerText = lang["signout"];
+
 function displayPasswords(){
     let html_passwords = "";
 
@@ -371,14 +381,14 @@ function addPassword(){
 
         if(xhr.readyState === 4){
             if(xhr.status != 200){
-                changeDialog(2, "Server is unreachable!");
+                changeDialog(2, lang["server_unreachable"]);
                 return;
             }
 
             const json = JSON.parse(xhr.responseText);
 
             if(typeof json['error'] === 'undefined'){
-                changeDialog(2, "Server is unreachable!");
+                changeDialog(2, lang["server_unreachable"]);
                 return;
             }
 
@@ -449,14 +459,14 @@ function editPassword(password_id){
 
         if(xhr.readyState === 4){
             if(xhr.status != 200){
-                changeDialog(2, "Server is unreachable!");
+                changeDialog(2, lang["server_unreachable"]);
                 return;
             }
 
             const json = JSON.parse(xhr.responseText);
 
             if(typeof json['error'] === 'undefined'){
-                changeDialog(2, "Server is unreachable!");
+                changeDialog(2, lang["server_unreachable"]);
                 return;
             }
 
@@ -484,14 +494,14 @@ function deletePassword(password_id){
 
         if(xhr.readyState === 4){
             if(xhr.status != 200){
-                changeDialog(2, "Server is unreachable!");
+                changeDialog(2, lang["server_unreachable"]);
                 return;
             }
             
             const json = JSON.parse(xhr.responseText);
 
             if(typeof json['error'] === 'undefined'){
-                changeDialog(2, "Server is unreachable!");
+                changeDialog(2, lang["server_unreachable"]);
                 return;
             }
 
