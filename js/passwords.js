@@ -19,8 +19,8 @@ switch(localStorage.theme){
 
 switch(localStorage.lang){
     case "nl":
-        document.getElementById("lang-link").innerText = "Language (Germany)";
-        document.getElementById("lang-link-mobile").innerText = "Language (Germany)";
+        document.getElementById("lang-link").innerText = "Language (Dutch)";
+        document.getElementById("lang-link-mobile").innerText = "Language (Dutch)";
     break;
     case "sl":
         document.getElementById("lang-link").innerText = "Language (Slovenian)";
