@@ -74,16 +74,14 @@ function displayPasswords(){
         document.getElementById("table-data").innerHTML = html_passwords;
 
         for(let i = 0; i < passwords.length; i++){
-
-            const decrypted_password = CryptoJS.AES.decrypt(passwords[i].password, localStorage.password).toString(CryptoJS.enc.Utf8);
-            const data = passwords[i].id + " " + passwords[i].website + " " + passwords[i].username + " " + decrypted_password;
+            const data = passwords[i].id + " " + passwords[i].website + " " + passwords[i].username + " " + passwords[i].password;
 
             document.getElementById("copy-username-" + passwords[i].id).addEventListener("click", () => {
                 copyToClipboard(passwords[i].username);
             });
 
             document.getElementById("copy-password-" + passwords[i].id).addEventListener("click", () => {
-                copyToClipboard(decrypted_password);
+                copyToClipboard(passwords[i].password);
             });
 
             document.getElementById("edit-password-" + passwords[i].id).addEventListener("click", () => {

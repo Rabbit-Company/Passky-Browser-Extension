@@ -202,7 +202,9 @@ function refreshPasswords(){
             if(json['error'] != 0 && json['error'] != 8) return;
 
             if(json['error'] == 0){
-                localStorage.passwords = JSON.stringify(json['passwords']);
+                let passwords = json['passwords'];
+                for(let i = 0; i < passwords.length; i++) passwords[i].password = CryptoJS.AES.decrypt(passwords[i].password, localStorage.password).toString(CryptoJS.enc.Utf8);
+                localStorage.passwords = JSON.stringify(passwords);
             }else{
                 localStorage.passwords = "{}";
             }

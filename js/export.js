@@ -57,13 +57,13 @@ function import_passky(){
 
     check_login();
 
-    let import_data = document.getElementById("import-data").value;
-    if(!isJsonValid(import_data)){
+    let imported_data = document.getElementById("import-data").value;
+    if(!isJsonValid(imported_data)){
         changeDialog(2, 1, 0);
         return;
     }
 
-    let ido = JSON.parse(import_data);
+    let ido = JSON.parse(imported_data);
 
     if(ido["encrypted"] == null || typeof(ido["encrypted"]) == 'undefined'){
         changeDialog(2, 1, 0);
@@ -87,7 +87,7 @@ function import_passky(){
         let duplicated = false;
         const current_passwords = JSON.parse(localStorage.passwords);
         for(let k = 0; k < current_passwords.length; k++){
-            if(current_passwords[k]["website"] == website && current_passwords[k]["username"] == username && CryptoJS.AES.decrypt(current_passwords[k]["password"], localStorage.password).toString(CryptoJS.enc.Utf8) == password){
+            if(current_passwords[k]["website"] == website && current_passwords[k]["username"] == username && current_passwords[k]["password"] == password){
                 duplicated = true;
                 break;
             }
@@ -109,7 +109,10 @@ function backup_passky(){
     check_login();
 
     let passwords = JSON.parse(localStorage.passwords);
-    for(let i = 0; i < passwords.length; i++) delete passwords[i]['id'];
+    for(let i = 0; i < passwords.length; i++){
+        delete passwords[i]['id'];
+        passwords[i]['password'] = CryptoJS.AES.encrypt(passwords[i]['password'], localStorage.password).toString();
+    }
 
     let backup_passky = { encrypted : true, passwords : passwords };
 
@@ -121,10 +124,7 @@ function export_passky(){
     check_login();
 
     let passwords = JSON.parse(localStorage.passwords);
-    for(let i = 0; i < passwords.length; i++){
-        delete passwords[i]['id'];
-        passwords[i]['password'] = CryptoJS.AES.decrypt(passwords[i]['password'], localStorage.password).toString(CryptoJS.enc.Utf8);
-    }
+    for(let i = 0; i < passwords.length; i++) delete passwords[i]['id'];
 
     let export_passky = { encrypted : false, passwords : passwords };
 
@@ -153,7 +153,7 @@ function import_lastpass(){
         let duplicated = false;
         const current_passwords = JSON.parse(localStorage.passwords);
         for(let k = 0; k < current_passwords.length; k++){
-            if(current_passwords[k]["website"] == website && current_passwords[k]["username"] == username && CryptoJS.AES.decrypt(current_passwords[k]["password"], localStorage.password).toString(CryptoJS.enc.Utf8) == password){
+            if(current_passwords[k]["website"] == website && current_passwords[k]["username"] == username && current_passwords[k]["password"] == password){
                 duplicated = true;
                 break;
             }
@@ -177,7 +177,7 @@ function export_lastpass(){
     let export_data = "url,username,password,totp,extra,name,grouping,fav";
     let passwords = JSON.parse(localStorage.passwords);
     for(let i = 0; i < passwords.length; i++){
-        export_data += "\n" + passwords[i]["website"] + "," + passwords[i]["username"] + "," + CryptoJS.AES.decrypt(passwords[i]["password"], localStorage.password).toString(CryptoJS.enc.Utf8) + ",,," + passwords[i]["website"] + ",,0";
+        export_data += "\n" + passwords[i]["website"] + "," + passwords[i]["username"] + "," + passwords[i]["password"] + ",,," + passwords[i]["website"] + ",,0";
     }
 
     downloadTxt(export_data, "lastpass_" + getDate(new Date()));
@@ -221,7 +221,7 @@ function import_bitwarden(){
         let duplicated = false;
         const current_passwords = JSON.parse(localStorage.passwords);
         for(let k = 0; k < current_passwords.length; k++){
-            if(current_passwords[k]["website"] == website && current_passwords[k]["username"] == username && CryptoJS.AES.decrypt(current_passwords[k]["password"], localStorage.password).toString(CryptoJS.enc.Utf8) == password){
+            if(current_passwords[k]["website"] == website && current_passwords[k]["username"] == username && current_passwords[k]["password"] == password){
                 duplicated = true;
                 break;
             }
