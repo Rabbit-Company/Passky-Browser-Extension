@@ -1,4 +1,4 @@
-check_login();
+if(!isSessionValid()) window.location.href = 'index.html';
 
 document.getElementById("passwords-link").innerText = lang[localStorage.lang]["passwords"];
 document.getElementById("import-export-link").innerText = lang[localStorage.lang]["import_export"];
@@ -55,7 +55,7 @@ document.getElementById("dialog-button-cancel").innerText = lang[localStorage.la
 
 function import_passky(){
 
-    check_login();
+    if(!isSessionValid()) window.location.href = 'index.html';
 
     let imported_data = document.getElementById("import-data").value;
     if(!isJsonValid(imported_data)){
@@ -106,7 +106,7 @@ function import_passky(){
 
 function backup_passky(){
 
-    check_login();
+    if(!isSessionValid()) window.location.href = 'index.html';
 
     let passwords = JSON.parse(localStorage.passwords);
     for(let i = 0; i < passwords.length; i++){
@@ -121,7 +121,7 @@ function backup_passky(){
 
 function export_passky(){
 
-    check_login();
+    if(!isSessionValid()) window.location.href = 'index.html';
 
     let passwords = JSON.parse(localStorage.passwords);
     for(let i = 0; i < passwords.length; i++) delete passwords[i]['id'];
@@ -133,7 +133,7 @@ function export_passky(){
 
 function import_lastpass(){
 
-    check_login();
+    if(!isSessionValid()) window.location.href = 'index.html';
 
     let ido = document.getElementById("import-data").value.split('\n');
 
@@ -172,7 +172,7 @@ function import_lastpass(){
 
 function export_lastpass(){
 
-    check_login();
+    if(!isSessionValid()) window.location.href = 'index.html';
 
     let export_data = "url,username,password,totp,extra,name,grouping,fav";
     let passwords = JSON.parse(localStorage.passwords);
@@ -185,7 +185,7 @@ function export_lastpass(){
 
 function import_bitwarden(){
 
-    check_login();
+    if(!isSessionValid()) window.location.href = 'index.html';
 
     let imported_data = document.getElementById("import-data").value;
     if(!isJsonValid(imported_data)){

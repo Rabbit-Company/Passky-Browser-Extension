@@ -1,3 +1,5 @@
+if(!isSessionValid()) window.location.href = 'index.html';
+
 document.getElementById("passwords-link").innerText = lang[localStorage.lang]["passwords"];
 document.getElementById("import-export-link").innerText = lang[localStorage.lang]["import_export"];
 document.getElementById("signout-link").innerText = lang[localStorage.lang]["signout"];
@@ -364,7 +366,7 @@ function changeDialog(style, text){
 }
 
 function addPassword(){
-    check_login();
+    if(!isSessionValid()) window.location.href = 'index.html';
 
     const website = document.getElementById("website").value;
     const username = document.getElementById("username").value;
@@ -439,7 +441,7 @@ function addPassword(){
 }
 
 function editPassword(password_id){
-    check_login();
+    if(!isSessionValid()) window.location.href = 'index.html';
 
     const website = document.getElementById("website").value;
     const username = document.getElementById("username").value;
