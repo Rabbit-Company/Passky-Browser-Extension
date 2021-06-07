@@ -19,6 +19,7 @@ switch(localStorage.theme){
     break;
 }
 
+document.getElementById("lang-link").value = localStorage.lang;
 document.getElementById("lang-link-mobile").value = localStorage.lang;
 
 document.getElementById("passky-backup-btn-text").innerText = lang[localStorage.lang]["backup"];

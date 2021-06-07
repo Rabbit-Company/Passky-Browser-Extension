@@ -60,7 +60,11 @@ function changeTheme(){
 }
 
 function changeLanguage(){
-    localStorage.lang = document.getElementById("lang-link-mobile").value;
+    if(document.getElementById('mobile-menu').className == 'hidden pt-2 pb-3 space-y-1'){
+        localStorage.lang = document.getElementById("lang-link").value;
+    }else{
+        localStorage.lang = document.getElementById("lang-link-mobile").value;
+    }
     location.reload();
 }
 

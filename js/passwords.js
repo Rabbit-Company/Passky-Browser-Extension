@@ -19,6 +19,7 @@ switch(localStorage.theme){
     break;
 }
 
+document.getElementById("lang-link").value = localStorage.lang;
 document.getElementById("lang-link-mobile").value = localStorage.lang;
 
 document.getElementById("search").placeholder = lang[localStorage.lang]["search"];
