@@ -60,23 +60,7 @@ function changeTheme(){
 }
 
 function changeLanguage(){
-    switch(localStorage.lang){
-        case "en":
-            localStorage.lang = "de";
-        break;
-        case "de":
-            localStorage.lang = "nl";
-        break;
-        case "nl":
-            localStorage.lang = "sl";
-        break;
-        case "sl":
-            localStorage.lang = "bs";
-        break;
-        default:
-            localStorage.lang = "en";
-        break;
-    }
+    localStorage.lang = document.getElementById("lang-link-mobile").value;
     location.reload();
 }
 

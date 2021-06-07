@@ -19,28 +19,7 @@ switch(localStorage.theme){
     break;
 }
 
-switch(localStorage.lang){
-    case "de":
-        document.getElementById("lang-link").innerText = "Language (German)";
-        document.getElementById("lang-link-mobile").innerText = "Language (German)";
-    break;
-    case "nl":
-        document.getElementById("lang-link").innerText = "Language (Dutch)";
-        document.getElementById("lang-link-mobile").innerText = "Language (Dutch)";
-    break;
-    case "sl":
-        document.getElementById("lang-link").innerText = "Language (Slovenian)";
-        document.getElementById("lang-link-mobile").innerText = "Language (Slovenian)";
-    break;
-    case "bs":
-        document.getElementById("lang-link").innerText = "Language (Bosnian)";
-        document.getElementById("lang-link-mobile").innerText = "Language (Bosnian)";
-    break;
-    default:
-        document.getElementById("lang-link").innerText = "Language (English)";
-        document.getElementById("lang-link-mobile").innerText = "Language (English)";
-    break;
-}
+document.getElementById("lang-link-mobile").value = localStorage.lang;
 
 document.getElementById("search").placeholder = lang[localStorage.lang]["search"];
 document.getElementById("add-password-btn").innerText = lang[localStorage.lang]["add_password"];
