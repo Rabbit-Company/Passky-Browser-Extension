@@ -508,7 +508,7 @@ const errors = {
         "404": "Impossibile connettersi all'API.",
         "429": "Stai mandando troppe richieste! Per favore aspetta prima di eseguire di nuovo questa azione.",
         "505": "Qualcosa è andato storto durante la connessione al database!",
-        "999": "NON hai i permessi per utilizzare questo terminale.",
+        "999": "NON hai i permessi per utilizzare questo terminale."
     },
     "sl": {
         "0": "Uspešno",
