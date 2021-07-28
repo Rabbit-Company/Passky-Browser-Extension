@@ -46,7 +46,7 @@ And when you donate, don’t think that you’re paying us to rest on our laurel
 
 If you’re ready to try Passky out at no cost, you can get started by visiting our website at https://passky.org. We currently have a desktop application available for Windows and Linux operating systems along with a mobile app on the Google Play Store. MacOS and iOS apps are currently being developed. In addition, we offer browser extensions for all major browsers except for Safari.
 
-## Passky browser extension installation
+## Passky Browser Extension Installation
 [![Passky Browser Extension Installation](https://img.youtube.com/vi/7tpq_0-DMPw/0.jpg)](https://www.youtube.com/watch?v=7tpq_0-DMPw "Click to watch!")
 
 ## Installation
