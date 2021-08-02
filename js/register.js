@@ -4,6 +4,7 @@ document.getElementById("passky-server").placeholder = lang[localStorage.lang]["
 document.getElementById("username").placeholder = lang[localStorage.lang]["username"];
 document.getElementById("email").placeholder = lang[localStorage.lang]["email"];
 document.getElementById("password").placeholder = lang[localStorage.lang]["password"];
+document.getElementById("tos").innerText = lang[localStorage.lang]["terms_of_service"];
 document.getElementById("btn-dialog").innerText = lang[localStorage.lang]["okay"];
 document.getElementById("error-dialog-modal-title").innerText = lang[localStorage.lang]["error"];
 document.getElementById("btn_signup").innerText = lang[localStorage.lang]["signup"];

@@ -72,10 +72,14 @@ function displayPasswords(){
 
             document.getElementById("copy-username-" + passwords[i].id).addEventListener("click", () => {
                 copyToClipboard(passwords[i].username);
+                changeDialog(7, 1);
+                show('dialog');
             });
 
             document.getElementById("copy-password-" + passwords[i].id).addEventListener("click", () => {
                 copyToClipboard(passwords[i].password);
+                changeDialog(7, 2);
+                show('dialog');
             });
 
             document.getElementById("edit-password-" + passwords[i].id).addEventListener("click", () => {
@@ -196,6 +200,8 @@ function changeDialog(style, text){
             document.getElementById('dialog-title').innerText = lang[localStorage.lang]["delete_account"];
             document.getElementById('dialog-text').innerText = lang[localStorage.lang]["delete_account_confirmation"];
     
+            document.getElementById('dialog-button-cancel').style.display = 'initial';
+
             document.getElementById('dialog-button').className = "dangerButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
             document.getElementById('dialog-button').innerText = lang[localStorage.lang]["delete"];
             document.getElementById('dialog-button').onclick = () => deleteAccount();
@@ -208,6 +214,8 @@ function changeDialog(style, text){
             document.getElementById('dialog-title').innerText = lang[localStorage.lang]["error"];
             document.getElementById('dialog-text').innerText = text;
     
+            document.getElementById('dialog-button-cancel').style.display = 'initial';
+
             document.getElementById('dialog-button').className = "dangerButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
             document.getElementById('dialog-button').innerText = lang[localStorage.lang]["try_again"];
             document.getElementById('dialog-button').onclick = () => changeDialog(0);
@@ -246,6 +254,8 @@ function changeDialog(style, text){
             document.getElementById('dialog-title').innerText = lang[localStorage.lang]["edit_password"];
 
             document.getElementById('dialog-text').innerHTML = "<div class='rounded-md shadow-sm -space-y-px'><div><label for='website' class='sr-only'>Website</label><input id='website' name='website' type='text' autocomplete='website' value='" + e_data[1] + "' required class='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' placeholder='" + lang[localStorage.lang]["website"] + "'></div><div><label for='username' class='sr-only'>Username</label><input id='username' name='username' type='text' autocomplete='username' value='" + e_data[2] + "' required class='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' placeholder='" + lang[localStorage.lang]["username"] + "'></div>   <div><div class='flex rounded-md shadow-sm'><div class='relative flex items-stretch flex-grow focus-within:z-10'><input id='password' name='password' type='password' autocomplete='current-password' value='" + e_data[3] + "' required class='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-bl-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' placeholder='" + lang[localStorage.lang]["password"] + "'></div><button id='btn-password-generator' class='secondaryColor tertiaryBackgroundColor primaryBorderColor -ml-px relative inline-flex items-center space-x-2 px-4 py-2 border text-sm font-medium rounded-br-mdfocus:outline-none'><svg xmlns='http://www.w3.org/2000/svg' class='primaryStrokeColor' width='24' height='24' viewBox='0 0 24 24' stroke-width='1.5' stroke='#2c3e50' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><rect x='3' y='3' width='6' height='6' rx='1' /><rect x='15' y='15' width='6' height='6' rx='1' /><path d='M21 11v-3a2 2 0 0 0 -2 -2h-6l3 3m0 -6l-3 3' /><path d='M3 13v3a2 2 0 0 0 2 2h6l-3 -3m0 6l3 -3' /></svg></button></div></div>";
+
+            document.getElementById('dialog-button-cancel').style.display = 'initial';
 
             document.getElementById('dialog-button').className = "primaryButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
             document.getElementById('dialog-button').innerText = lang[localStorage.lang]["change"];
@@ -308,6 +318,8 @@ function changeDialog(style, text){
                 }
             }
 
+            document.getElementById('dialog-button-cancel').style.display = 'initial';
+
             animateButton('btn-upper', btn_upper_enabled);
             animateButton('btn-numbers', btn_numbers_enabled);
             animateButton('btn-special', btn_special_enabled);
@@ -320,9 +332,33 @@ function changeDialog(style, text){
             document.getElementById('dialog-title').innerText = lang[localStorage.lang]["delete_password"];
             document.getElementById('dialog-text').innerText = lang[localStorage.lang]["delete_password_confirmation"];
     
+            document.getElementById('dialog-button-cancel').style.display = 'initial';
+
             document.getElementById('dialog-button').className = "dangerButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
             document.getElementById('dialog-button').innerText = lang[localStorage.lang]["delete"];
             document.getElementById('dialog-button').onclick = () => deletePassword(text);
+        break;
+        case 7:
+            //Copied successfully
+            document.getElementById('dialog-icon').className = "mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100";
+            document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-green-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' aria-hidden='true'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 13l4 4L19 7' /></svg>";
+    
+            document.getElementById('dialog-title').innerText = lang[localStorage.lang]["success"];
+
+            switch(text){
+                case 1: 
+                    document.getElementById('dialog-text').innerText = lang[localStorage.lang]["copy_username_success"];
+                break;
+                case 2:
+                    document.getElementById('dialog-text').innerText = lang[localStorage.lang]["copy_password_success"];
+                break;
+            }
+    
+            document.getElementById('dialog-button-cancel').style.display = 'none';
+
+            document.getElementById('dialog-button').className = "successButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
+            document.getElementById('dialog-button').innerText = lang[localStorage.lang]["okay"];
+            document.getElementById('dialog-button').onclick = () => hide('dialog');
         break;
         default:
             //Add password dialog
@@ -351,6 +387,8 @@ function changeDialog(style, text){
                     });
                 }catch{}
             }
+            
+            document.getElementById('dialog-button-cancel').style.display = 'initial';
 
             document.getElementById('btn-password-generator').onclick = () => changeDialog(5, "-1" + " " + document.getElementById("website").value + " " + document.getElementById("username").value + " " + document.getElementById("password").value);
         break;
