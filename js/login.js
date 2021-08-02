@@ -8,20 +8,60 @@ document.getElementById("passky-server").placeholder = lang[localStorage.lang]["
 document.getElementById("username").placeholder = lang[localStorage.lang]["username"];
 document.getElementById("password").placeholder = lang[localStorage.lang]["password"];
 document.getElementById("btn_signin").innerText = lang[localStorage.lang]["signin"];
-document.getElementById("error-dialog-modal-title").innerText = lang[localStorage.lang]["error"];
-document.getElementById("dont_have_account_link").innerText = lang[localStorage.lang]["dont_have_account_link"];
-document.getElementById("error-dialog-okay").innerText = lang[localStorage.lang]["okay"];
+document.getElementById("btn_signup").innerText = lang[localStorage.lang]["signup"];
 
 document.getElementById("login_form").addEventListener("submit", e => {
     e.preventDefault();
-    onBtnClick();
+    login_check();
 });
 
-document.getElementById("error-dialog-okay").addEventListener("click", () => {
-    hide('error-dialog');
+document.getElementById("btn_signup").addEventListener("click", () => {
+    window.location.href = "register.html";
 });
 
-function onBtnClick(){
+document.getElementById("forgot_username").addEventListener("click", () => {
+    changeDialog(2);
+    show("dialog");
+});
+
+function changeDialog(style, text){
+    switch(style){
+        case 1:
+            //Error dialog
+            document.getElementById('dialog-icon').className = "mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10";
+            document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-red-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' aria-hidden='true'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z' /></svg>";
+    
+            document.getElementById('dialog-title').innerText = lang[localStorage.lang]["error"];
+            document.getElementById('dialog-text').innerText = text;
+    
+            document.getElementById('dialog-button-cancel').style.display = 'none';
+
+            document.getElementById('dialog-button').className = "dangerButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
+            document.getElementById('dialog-button').innerText = lang[localStorage.lang]["okay"];
+            document.getElementById('dialog-button').onclick = () => hide("dialog");
+        break;
+        case 2:
+            //Forgot username
+            document.getElementById('dialog-icon').className = "mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10";
+            document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-blue-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><circle cx='8' cy='15' r='4' /><line x1='10.85' y1='12.15' x2='19' y2='4' /><line x1='18' y1='5' x2='20' y2='7' /><line x1='15' y1='8' x2='17' y2='10' /></svg>";
+    
+            document.getElementById('dialog-title').innerText = "Forget username";
+            document.getElementById('dialog-text').innerHTML = "<label for='fu_email' class='sr-only'>Email</label><input id='fu_server' name='fu_server' list='servers' type='text' autocomplete='server' class='tertiaryBackgroundColor tertiaryColor primaryBorderColor appearance-none rounded-none relative block w-full px-3 py-2 border focus:outline-none focus:z-10 sm:text-sm' placeholder='Server'><input id='fu_email' name='fu_email' type='email' autocomplete='email' class='tertiaryBackgroundColor tertiaryColor primaryBorderColor appearance-none rounded-none relative block w-full px-3 py-2 border focus:outline-none focus:z-10 sm:text-sm' placeholder='Email'>";
+    
+            if(localStorage.url !== null && typeof(localStorage.url) !== 'undefined') document.getElementById("fu_server").value = localStorage.url;
+
+            document.getElementById('dialog-button-cancel').style.display = 'initial';
+
+            document.getElementById('dialog-button').className = "primaryButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
+            document.getElementById('dialog-button').innerText = "Send";
+            document.getElementById('dialog-button').onclick = () => forget_username();
+
+            document.getElementById("dialog-button-cancel").onclick = () => hide("dialog");
+        break;
+    }
+}
+
+function login_check(){
 
     const url = document.getElementById("passky-server").value;
     const username = document.getElementById("username").value;
@@ -30,20 +70,20 @@ function onBtnClick(){
     if(url.length == 0 || username.length == 0 || password.length == 0) return;
 
     if(!/^[a-z0-9.]{6,30}$/i.test(username)){
-        setText('error-dialog-modal-text', errors[localStorage.lang]["12"]);
-        show('error-dialog');
+        changeDialog(1, errors[localStorage.lang]["12"]);
+        show('dialog');
         return;
     }
 
     if(!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,255}$/i.test(password)){
-        setText('error-dialog-modal-text', errors[localStorage.lang]["5"]);
-        show('error-dialog');
+        changeDialog(1, errors[localStorage.lang]["5"]);
+        show('dialog');
         return;
     }
 
     if(!validURL(url)){
-        setText('error-dialog-modal-text', lang[localStorage.lang]["url_invalid"]);
-        show('error-dialog');
+        changeDialog(1, lang[localStorage.lang]["url_invalid"]);
+        show('dialog');
         return;
     }
 
@@ -58,21 +98,21 @@ function onBtnClick(){
 
         if(xhr.readyState === 4){
             if(xhr.status != 200){
-                setText('error-dialog-modal-text', lang[localStorage.lang]["server_unreachable"]);
-                show('error-dialog');
+                changeDialog(1, lang[localStorage.lang]["server_unreachable"]);
+                show('dialog');
                 return;
             }
             var json = JSON.parse(xhr.responseText);
 
             if(typeof json['error'] === 'undefined'){
-                setText('error-dialog-modal-text', lang[localStorage.lang]["server_unreachable"]);
-                show('error-dialog');
+                changeDialog(1, lang[localStorage.lang]["server_unreachable"]);
+                show('dialog');
                 return;
             }
 
             if(json['error'] != 0 && json['error'] != 8){
-                setText('error-dialog-modal-text', errors[localStorage.lang][json['error']]);
-                show('error-dialog');
+                changeDialog(1, errors[localStorage.lang][json['error']]);
+                show('dialog');
                 return;
             }
 
@@ -94,5 +134,58 @@ function onBtnClick(){
 
     };
     xhr.send("");
+}
 
+function forget_username(){
+
+    const url = document.getElementById("fu_server").value;
+    const email = document.getElementById("fu_email").value;
+
+    if(url.length == 0 || email.length == 0) return;
+
+    if(!validURL(url)){
+        changeDialog(1, lang[localStorage.lang]["url_invalid"]);
+        show('dialog');
+        return;
+    }
+
+    if(!validEmail(email)){
+        changeDialog(1, errors[localStorage.lang]["6"]);
+        show('dialog');
+        return;
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url + "/?action=forgotUsername");
+
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+
+        if(xhr.readyState === 4){
+            if(xhr.status != 200){
+                changeDialog(1, lang[localStorage.lang]["server_unreachable"]);
+                show('dialog');
+                return;
+            }
+            var json = JSON.parse(xhr.responseText);
+
+            if(typeof json['error'] === 'undefined'){
+                changeDialog(1, lang[localStorage.lang]["server_unreachable"]);
+                show('dialog');
+                return;
+            }
+
+            if(json['error'] != 0){
+                changeDialog(1, errors[localStorage.lang][json['error']]);
+                show('dialog');
+                return;
+            }
+
+            alert("Email sent successfully!");
+        }
+
+    };
+    xhr.send("email=" + email);
 }
