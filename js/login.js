@@ -58,6 +58,21 @@ function changeDialog(style, text){
 
             document.getElementById("dialog-button-cancel").onclick = () => hide("dialog");
         break;
+        case 3:
+            //Email sent successfully
+            document.getElementById('dialog-icon').className = "mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100";
+            document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-green-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' aria-hidden='true'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 13l4 4L19 7' /></svg>";
+    
+            document.getElementById('dialog-title').innerText = lang[localStorage.lang]["success"];
+
+            document.getElementById('dialog-text').innerText = lang[localStorage.lang]["email_sent_success"];
+    
+            document.getElementById('dialog-button-cancel').style.display = 'none';
+
+            document.getElementById('dialog-button').className = "successButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
+            document.getElementById('dialog-button').innerText = lang[localStorage.lang]["okay"];
+            document.getElementById('dialog-button').onclick = () => hide('dialog');
+        break;
     }
 }
 
@@ -159,7 +174,7 @@ function forget_username(){
     xhr.open("POST", url + "/?action=forgotUsername");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
 
@@ -183,7 +198,8 @@ function forget_username(){
                 return;
             }
 
-            alert("Email sent successfully!");
+            changeDialog(3);
+            show('dialog');
         }
 
     };
