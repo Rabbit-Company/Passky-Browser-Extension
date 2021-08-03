@@ -32,6 +32,7 @@ const lang = {
         "theme": "Theme",
         "search": "Search",
         "length": "Length",
+        "forgot_username": "Forgot username?",
         "email_sent_success": "Email sent successfully",
         "add_password": "Add password",
         "add_password_success": "Password has been added successfully",
@@ -827,6 +828,7 @@ const errors = {
         "404": "Can't connect into API.",
         "429": "You are sending too many requests! Please wait before executing this action again.",
         "505": "Something went wrong while connecting to the database!",
+        "506": "Something went wrong while connecting to the mail server!",
         "999": "You do NOT have permission to use this endpoint."
     },
     "zh-CN": {

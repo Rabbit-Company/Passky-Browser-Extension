@@ -9,6 +9,7 @@ document.getElementById("username").placeholder = lang[localStorage.lang]["usern
 document.getElementById("password").placeholder = lang[localStorage.lang]["password"];
 document.getElementById("btn_signin").innerText = lang[localStorage.lang]["signin"];
 document.getElementById("btn_signup").innerText = lang[localStorage.lang]["signup"];
+document.getElementById("forgot_username").innerText = lang[localStorage.lang]["forgot_username"];
 
 document.getElementById("login_form").addEventListener("submit", e => {
     e.preventDefault();
@@ -45,15 +46,18 @@ function changeDialog(style, text){
             document.getElementById('dialog-icon').className = "mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10";
             document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-blue-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><circle cx='8' cy='15' r='4' /><line x1='10.85' y1='12.15' x2='19' y2='4' /><line x1='18' y1='5' x2='20' y2='7' /><line x1='15' y1='8' x2='17' y2='10' /></svg>";
     
-            document.getElementById('dialog-title').innerText = "Forget username";
-            document.getElementById('dialog-text').innerHTML = "<label for='fu_email' class='sr-only'>Email</label><input id='fu_server' name='fu_server' list='servers' type='text' autocomplete='server' class='tertiaryBackgroundColor tertiaryColor primaryBorderColor appearance-none rounded-none relative block w-full px-3 py-2 border focus:outline-none focus:z-10 sm:text-sm' placeholder='Server'><input id='fu_email' name='fu_email' type='email' autocomplete='email' class='tertiaryBackgroundColor tertiaryColor primaryBorderColor appearance-none rounded-none relative block w-full px-3 py-2 border focus:outline-none focus:z-10 sm:text-sm' placeholder='Email'>";
+            document.getElementById('dialog-title').innerText = lang[localStorage.lang]["forgot_username"];
+            document.getElementById('dialog-text').innerHTML = "<input id='fu_server' name='fu_server' list='servers' type='text' autocomplete='server' class='tertiaryBackgroundColor tertiaryColor primaryBorderColor appearance-none rounded-t-md relative block w-full px-3 py-2 border focus:outline-none focus:z-10 sm:text-sm' placeholder='Server'><input id='fu_email' name='fu_email' type='email' autocomplete='email' class='tertiaryBackgroundColor tertiaryColor primaryBorderColor appearance-none rounded-b-md relative block w-full px-3 py-2 border focus:outline-none focus:z-10 sm:text-sm' placeholder='Email'>";
     
+            document.getElementById("fu_server").placeholder = lang[localStorage.lang]["server"];
+            document.getElementById("fu_email").placeholder = lang[localStorage.lang]["email"];
+
             if(localStorage.url !== null && typeof(localStorage.url) !== 'undefined') document.getElementById("fu_server").value = localStorage.url;
 
             document.getElementById('dialog-button-cancel').style.display = 'initial';
 
             document.getElementById('dialog-button').className = "primaryButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
-            document.getElementById('dialog-button').innerText = "Send";
+            document.getElementById('dialog-button').innerText = lang[localStorage.lang]["send"];;
             document.getElementById('dialog-button').onclick = () => forget_username();
 
             document.getElementById("dialog-button-cancel").onclick = () => hide("dialog");
