@@ -91,7 +91,7 @@
             <!-- Themes -->
             <li class="secondaryBackgroundColor shadow overflow-hidden rounded-md px-6 py-4">
                 <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                    <label class="secondaryColor block text-sm font-medium sm:mt-px sm:pt-2">
+                    <label id="label-theme" class="secondaryColor block text-sm font-medium sm:mt-px sm:pt-2">
                         Theme
                     </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
@@ -116,9 +116,9 @@
                             <option value="15">15 minutes</option>
                             <option value="20">20 minutes</option>
                             <option value="30">30 minutes</option>
-                            <option value="60">1 hour</option>
-                            <option value="120">2 hours</option>
-                            <option value="300">5 hours</option>
+                            <option value="60">60 minutes</option>
+                            <option value="120">120 minutes</option>
+                            <option value="300">300 minutes</option>
                         </select>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                       </p>
                     </div>
                     <div class="mt-5">
-                      <button id="delete-account-btn" type="button" class="dangerButton inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md focus:outline-none sm:text-sm">
+                      <button id="delete-account-btn" type="button" class="dangerButton font-bold inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md focus:outline-none sm:text-sm">
                         Delete account
                       </button>
                     </div>
@@ -173,6 +173,7 @@
     </div>
     <script src="js/default-functions.js"></script>
     <script src="js/qrcode.js"></script>
+    <script src="js/sha512.js"></script>
     <script src="js/settings.js"></script>
   </body>
 </html>
