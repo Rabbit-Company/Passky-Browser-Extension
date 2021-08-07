@@ -12,6 +12,7 @@ document.getElementById("dialog-button-cancel").innerText = lang[localStorage.la
 
 document.getElementById("settings-lang").value = localStorage.lang;
 document.getElementById("settings-theme").value = localStorage.theme;
+document.getElementById("settings-session").value = localStorage.sessionDuration;
 
 document.getElementById("settings-lang").addEventListener("change", () => {
     localStorage.lang = document.getElementById("settings-lang").value;
@@ -21,6 +22,11 @@ document.getElementById("settings-lang").addEventListener("change", () => {
 document.getElementById("settings-theme").addEventListener("change", () => {
     localStorage.theme = document.getElementById("settings-theme").value;
     document.getElementById("css-theme").href = "css/themes/" + localStorage.theme + ".css";
+});
+
+document.getElementById("settings-session").addEventListener("change", () => {
+    localStorage.sessionDuration = document.getElementById("settings-session").value;
+    location.reload();
 });
 
 document.getElementById("signout-link").addEventListener("click", () => {

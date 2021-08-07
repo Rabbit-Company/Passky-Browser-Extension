@@ -184,7 +184,7 @@ function clearStorage(){
 }
 
 function isSessionValid(){
-    if(localStorage.url == null || typeof(localStorage.url) == 'undefined' || localStorage.username == null || typeof(localStorage.username) == 'undefined' || localStorage.password == null || typeof(localStorage.password) == 'undefined' || localStorage.passwords == null || typeof(localStorage.passwords) == 'undefined' || localStorage.loginTime == null || typeof(localStorage.loginTime) == 'undefined' || ((parseFloat(localStorage.loginTime) + 1200000)) < new Date().getTime()){
+    if(localStorage.url == null || typeof(localStorage.url) == 'undefined' || localStorage.username == null || typeof(localStorage.username) == 'undefined' || localStorage.password == null || typeof(localStorage.password) == 'undefined' || localStorage.passwords == null || typeof(localStorage.passwords) == 'undefined' || localStorage.loginTime == null || typeof(localStorage.loginTime) == 'undefined' || localStorage.sessionDuration == null || typeof(localStorage.sessionDuration) == 'undefined' || ((parseFloat(localStorage.loginTime) + (localStorage.sessionDuration * 60000))) < new Date().getTime()){
         clearStorage();
         return false;
     }
