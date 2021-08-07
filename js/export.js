@@ -8,21 +8,6 @@ document.getElementById("passwords-link-mobile").innerText = lang[localStorage.l
 document.getElementById("import-export-link-mobile").innerText = lang[localStorage.lang]["import_export"];
 document.getElementById("signout-link-mobile").innerText = lang[localStorage.lang]["signout"];
 
-switch(localStorage.theme){
-    case "light":
-        document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Light)";
-        document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Light)";
-    break;
-    case "blue":
-        document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Blue)";
-        document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Blue)";
-    break;
-    default:
-        document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Dark)";
-        document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Dark)";
-    break;
-}
-
 document.getElementById("lang-link").value = localStorage.lang;
 document.getElementById("lang-link-mobile").value = localStorage.lang;
 
@@ -347,14 +332,6 @@ document.getElementById("signout-link").addEventListener("click", () => {
 
 document.getElementById("signout-link-mobile").addEventListener("click", () => {
     logout();
-});
-
-document.getElementById("theme-link").addEventListener("click", () => {
-    changeTheme();
-});
-
-document.getElementById("theme-link-mobile").addEventListener("click", () => {
-    changeTheme();
 });
 
 document.getElementById("lang-link").addEventListener("change", () => {

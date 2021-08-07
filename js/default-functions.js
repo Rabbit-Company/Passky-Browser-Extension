@@ -42,29 +42,6 @@ function toggleMenu(){
     }
 }
 
-function changeTheme(){
-    switch(localStorage.theme){
-        case "dark":
-            document.getElementById("css-theme").href = "css/themes/blue.css";
-            document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Blue)";
-            document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Blue)";
-            localStorage.theme = "blue";
-        break;
-        case "blue":
-            document.getElementById("css-theme").href = "css/themes/light.css";
-            document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Light)";
-            document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Light)";
-            localStorage.theme = "light";
-        break;
-        default:
-            document.getElementById("css-theme").href = "css/themes/dark.css";
-            document.getElementById("theme-link").innerText = lang[localStorage.lang]["theme"] + " (Dark)";
-            document.getElementById("theme-link-mobile").innerText = lang[localStorage.lang]["theme"] + " (Dark)";
-            localStorage.theme = "dark";
-        break;
-    }
-}
-
 function changeLanguage(){
     if(document.getElementById('mobile-menu').className == 'hidden pt-2 pb-3 space-y-1'){
         localStorage.lang = document.getElementById("lang-link").value;

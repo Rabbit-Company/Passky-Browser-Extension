@@ -10,6 +10,13 @@ document.getElementById("signout-link-mobile").innerText = lang[localStorage.lan
 
 document.getElementById("dialog-button-cancel").innerText = lang[localStorage.lang]["cancel"];
 
+document.getElementById("settings-theme").value = localStorage.theme;
+
+document.getElementById("settings-theme").addEventListener("change", () => {
+    localStorage.theme = document.getElementById("settings-theme").value;
+    document.getElementById("css-theme").href = "css/themes/" + localStorage.theme + ".css";
+});
+
 document.getElementById("signout-link").addEventListener("click", () => {
     logout();
 });
