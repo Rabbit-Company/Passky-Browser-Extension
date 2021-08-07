@@ -8,9 +8,6 @@ document.getElementById("passwords-link-mobile").innerText = lang[localStorage.l
 document.getElementById("import-export-link-mobile").innerText = lang[localStorage.lang]["import_export"];
 document.getElementById("signout-link-mobile").innerText = lang[localStorage.lang]["signout"];
 
-document.getElementById("lang-link").value = localStorage.lang;
-document.getElementById("lang-link-mobile").value = localStorage.lang;
-
 document.getElementById("search").placeholder = lang[localStorage.lang]["search"];
 document.getElementById("add-password-btn").innerText = lang[localStorage.lang]["add_password"];
 
@@ -106,14 +103,6 @@ document.getElementById("delete-account-btn").addEventListener("click", () => {
 
 document.getElementById("signout-link-mobile").addEventListener("click", () => {
     logout();
-});
-
-document.getElementById("lang-link").addEventListener("change", () => {
-    changeLanguage();
-});
-
-document.getElementById("lang-link-mobile").addEventListener("change", () => {
-    changeLanguage();
 });
 
 document.getElementById("main-menu-toggle-btn").addEventListener("click", () => {

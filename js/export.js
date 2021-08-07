@@ -8,9 +8,6 @@ document.getElementById("passwords-link-mobile").innerText = lang[localStorage.l
 document.getElementById("import-export-link-mobile").innerText = lang[localStorage.lang]["import_export"];
 document.getElementById("signout-link-mobile").innerText = lang[localStorage.lang]["signout"];
 
-document.getElementById("lang-link").value = localStorage.lang;
-document.getElementById("lang-link-mobile").value = localStorage.lang;
-
 document.getElementById("passky-backup-btn-text").innerText = lang[localStorage.lang]["backup"];
 
 document.getElementById("passky-import-btn-text").innerText = lang[localStorage.lang]["import"];
@@ -332,14 +329,6 @@ document.getElementById("signout-link").addEventListener("click", () => {
 
 document.getElementById("signout-link-mobile").addEventListener("click", () => {
     logout();
-});
-
-document.getElementById("lang-link").addEventListener("change", () => {
-    changeLanguage();
-});
-
-document.getElementById("lang-link-mobile").addEventListener("change", () => {
-    changeLanguage();
 });
 
 document.getElementById("main-menu-toggle-btn").addEventListener("click", () => {
