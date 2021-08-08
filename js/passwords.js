@@ -208,7 +208,7 @@ function changeDialog(style, text){
         break;
         case 5:
             //Password Generator dialog
-            const pg_data = text.split(" ");
+            const pg_data = text.split(";;");
 
             let btn_upper_enabled = true;
             let btn_numbers_enabled = true;
@@ -250,13 +250,13 @@ function changeDialog(style, text){
             }else if(pg_data[0] == "-1"){
                 document.getElementById('dialog-button').innerText = lang[localStorage.lang]["use"];
                 document.getElementById('dialog-button').onclick = () => {
-                    text = pg_data[0] + " " + pg_data[1] + " " + pg_data[2] + " " + document.getElementById('generated-password').innerText;
+                    text = pg_data[0] + ";;" + pg_data[1] + ";;" + pg_data[2] + ";;" + document.getElementById('generated-password').innerText + ";;" + pg_data[4];
                     changeDialog(0, text);
                 }
             }else{
                 document.getElementById('dialog-button').innerText = lang[localStorage.lang]["use"];
                 document.getElementById('dialog-button').onclick = () => {
-                    text = pg_data[0] + " " + pg_data[1] + " " + pg_data[2] + " " + document.getElementById('generated-password').innerText;
+                    text = pg_data[0] + ";;" + pg_data[1] + ";;" + pg_data[2] + ";;" + document.getElementById('generated-password').innerText + ";;" + pg_data[4];
                     changeDialog(4, text);
                 }
             }
@@ -317,10 +317,11 @@ function changeDialog(style, text){
             document.getElementById('dialog-button').onclick = () => addPassword();
 
             if(text != null){
-                const data = text.split(" ");
+                const data = text.split(";;");
                 document.getElementById("website").value = data[1];
                 document.getElementById("username").value = data[2];
                 document.getElementById("password").value = data[3];
+                document.getElementById("message").value = data[4];
             }else{
                 try{
                     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
@@ -333,7 +334,7 @@ function changeDialog(style, text){
             
             document.getElementById('dialog-button-cancel').style.display = 'initial';
 
-            document.getElementById('btn-password-generator').onclick = () => changeDialog(5, "-1" + " " + document.getElementById("website").value + " " + document.getElementById("username").value + " " + document.getElementById("password").value);
+            document.getElementById('btn-password-generator').onclick = () => changeDialog(5, "-1" + ";;" + document.getElementById("website").value + ";;" + document.getElementById("username").value + ";;" + document.getElementById("password").value + ";;" + document.getElementById("message").value);
         break;
     }
 }
