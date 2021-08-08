@@ -85,6 +85,7 @@ function login_check(){
     const url = document.getElementById("passky-server").value;
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
+    const otp = document.getElementById("otp").value;
 
     if(url.length == 0 || username.length == 0 || password.length == 0) return;
 
@@ -106,12 +107,18 @@ function login_check(){
         return;
     }
 
+    if(otp.length != 0 && otp.length != 6 && otp.length != 7){
+        changeDialog(1, "OTP contains 6 numbers.\nIf you did not setup 2FA on your account leave this field empty.");
+        show('dialog');
+        return;
+    }
+
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url + "/?action=getPasswords");
 
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + sha512(password)));
-    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
 
@@ -152,7 +159,7 @@ function login_check(){
         }
 
     };
-    xhr.send("");
+    xhr.send("otp=" + otp);
 }
 
 function forget_username(){
