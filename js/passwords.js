@@ -345,6 +345,7 @@ function addPassword(){
     const website = document.getElementById("website").value;
     const username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
+    let message = document.getElementById("message").value;
 
     if(website.length == 0 || username.length == 0 || password.length == 0) return;
 
@@ -378,7 +379,10 @@ function addPassword(){
         return;
     }
 
+    if(message.length == 0) message = null;
+
     password = CryptoJS.AES.encrypt(password, localStorage.password).toString();
+    message = CryptoJS.AES.encrypt(message, localStorage.password).toString();
     
     var xhr = new XMLHttpRequest();
     xhr.open("POST", localStorage.url + "/?action=savePassword");
@@ -411,7 +415,7 @@ function addPassword(){
         }
 
     };
-    xhr.send("website=" + website + "&username=" + username + "&password=" + encodeURIComponent(password));
+    xhr.send("website=" + website + "&username=" + username + "&password=" + encodeURIComponent(password) + "&message=" + encodeURIComponent(message));
 }
 
 function editPassword(password_id){
