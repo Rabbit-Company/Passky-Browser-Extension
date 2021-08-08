@@ -415,7 +415,7 @@ function addPassword(){
         }
 
     };
-    xhr.send("website=" + website + "&username=" + username + "&password=" + encodeURIComponent(password) + "&message=" + encodeURIComponent(message));
+    xhr.send("website=" + encodeURIComponent(website) + "&username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password) + "&message=" + encodeURIComponent(message));
 }
 
 function editPassword(password_id){
