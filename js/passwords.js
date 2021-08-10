@@ -46,7 +46,7 @@ function displayPasswords(){
         document.getElementById("table-data").innerHTML = html_passwords;
 
         for(let i = 0; i < passwords.length; i++){
-            const data = passwords[i].id + " " + passwords[i].website + " " + passwords[i].username + " " + passwords[i].password;
+            const data = passwords[i].id + ";;" + passwords[i].website + ";;" + passwords[i].username + ";;" + passwords[i].password + ";;" + passwords[i].message;
 
             document.getElementById("copy-username-" + passwords[i].id).addEventListener("click", () => {
                 copyToClipboard(passwords[i].username);
@@ -189,14 +189,14 @@ function changeDialog(style, text){
         break;
         case 4:
             //Edit password dialog
-            const e_data = text.split(" ");
+            const e_data = text.split(";;");
 
             document.getElementById('dialog-icon').className = "mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10";
             document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-blue-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><circle cx='8' cy='15' r='4' /><line x1='10.85' y1='12.15' x2='19' y2='4' /><line x1='18' y1='5' x2='20' y2='7' /><line x1='15' y1='8' x2='17' y2='10' /></svg>";
 
             document.getElementById('dialog-title').innerText = lang[localStorage.lang]["edit_password"];
 
-            document.getElementById('dialog-text').innerHTML = "<div class='rounded-md shadow-sm -space-y-px'><div><label for='website' class='sr-only'>Website</label><input id='website' name='website' type='text' autocomplete='website' value='" + e_data[1] + "' required class='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' placeholder='" + lang[localStorage.lang]["website"] + "'></div><div><label for='username' class='sr-only'>Username</label><input id='username' name='username' type='text' autocomplete='username' value='" + e_data[2] + "' required class='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' placeholder='" + lang[localStorage.lang]["username"] + "'></div>   <div><div class='flex rounded-md shadow-sm'><div class='relative flex items-stretch flex-grow focus-within:z-10'><input id='password' name='password' type='password' autocomplete='current-password' value='" + e_data[3] + "' required class='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-bl-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' placeholder='" + lang[localStorage.lang]["password"] + "'></div><button id='btn-password-generator' class='secondaryColor tertiaryBackgroundColor primaryBorderColor -ml-px relative inline-flex items-center space-x-2 px-4 py-2 border text-sm font-medium rounded-br-mdfocus:outline-none'><svg xmlns='http://www.w3.org/2000/svg' class='primaryStrokeColor' width='24' height='24' viewBox='0 0 24 24' stroke-width='1.5' stroke='#2c3e50' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><rect x='3' y='3' width='6' height='6' rx='1' /><rect x='15' y='15' width='6' height='6' rx='1' /><path d='M21 11v-3a2 2 0 0 0 -2 -2h-6l3 3m0 -6l-3 3' /><path d='M3 13v3a2 2 0 0 0 2 2h6l-3 -3m0 6l3 -3' /></svg></button></div></div>";
+            document.getElementById('dialog-text').innerHTML = "<div class='rounded-md shadow-sm -space-y-px'><div><label for='website' class='sr-only'>Website</label><input id='website' name='website' type='text' autocomplete='website' value='" + e_data[1] + "' required class='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' placeholder='" + lang[localStorage.lang]["website"] + "'></div><div><label for='username' class='sr-only'>Username</label><input id='username' name='username' type='text' autocomplete='username' value='" + e_data[2] + "' required class='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' placeholder='" + lang[localStorage.lang]["username"] + "'></div>   <div><div class='flex rounded-md shadow-sm'><div class='relative flex items-stretch flex-grow focus-within:z-10'><input id='password' name='password' type='password' autocomplete='current-password' value='" + e_data[3] + "' required class='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-bl-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' placeholder='" + lang[localStorage.lang]["password"] + "'></div><button id='btn-password-generator' class='secondaryColor tertiaryBackgroundColor primaryBorderColor -ml-px relative inline-flex items-center space-x-2 px-4 py-2 border text-sm font-medium rounded-br-mdfocus:outline-none'><svg xmlns='http://www.w3.org/2000/svg' class='primaryStrokeColor' width='24' height='24' viewBox='0 0 24 24' stroke-width='1.5' stroke='#2c3e50' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><rect x='3' y='3' width='6' height='6' rx='1' /><rect x='15' y='15' width='6' height='6' rx='1' /><path d='M21 11v-3a2 2 0 0 0 -2 -2h-6l3 3m0 -6l-3 3' /><path d='M3 13v3a2 2 0 0 0 2 2h6l-3 -3m0 6l3 -3' /></svg></button></div></div><h3 class='tertiaryColor text-lg leading-6 font-medium py-2'>Optional note</h3><textarea id='message' name='message' rows='3' class='max-w-lg p-2 shadow-sm block w-full sm:text-sm rounded-md focus:outline-none focus:z-10'>" + e_data[4] + "</textarea>";
 
             document.getElementById('dialog-button-cancel').style.display = 'initial';
 
@@ -379,7 +379,7 @@ function addPassword(){
         return;
     }
 
-    if(message.length == 0) message = null;
+    if(message.length == 0 || typeof(message) == 'undefined') message = "";
 
     password = CryptoJS.AES.encrypt(password, localStorage.password).toString();
     message = CryptoJS.AES.encrypt(message, localStorage.password).toString();
@@ -424,6 +424,7 @@ function editPassword(password_id){
     const website = document.getElementById("website").value;
     const username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
+    let message = document.getElementById("message").value;
 
     if(password_id.length == 0 || website.length == 0 || username.length == 0 || password.length == 0) return;
 
@@ -457,7 +458,10 @@ function editPassword(password_id){
         return;
     }
 
+    if(message.length == 0 || typeof(message) == 'undefined') message = "";
+
     password = CryptoJS.AES.encrypt(password, localStorage.password).toString();
+    message = CryptoJS.AES.encrypt(message, localStorage.password).toString();
     
     var xhr = new XMLHttpRequest();
     xhr.open("POST", localStorage.url + "/?action=editPassword");
@@ -490,7 +494,7 @@ function editPassword(password_id){
         }
 
     };
-    xhr.send("password_id=" + password_id + "&website=" + website + "&username=" + username + "&password=" + encodeURIComponent(password));
+    xhr.send("password_id=" + encodeURIComponent(password_id) + "&website=" + encodeURIComponent(website) + "&username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password) + "&message=" + encodeURIComponent(message));
 }
 
 function deletePassword(password_id){
@@ -525,7 +529,7 @@ function deletePassword(password_id){
         }
 
     };
-    xhr.send("password_id=" + password_id);
+    xhr.send("password_id=" + encodeURIComponent(password_id));
 }
 
 function filterPasswords(){
