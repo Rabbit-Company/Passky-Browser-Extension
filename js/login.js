@@ -144,7 +144,10 @@ function login_check(){
 
             if(json['error'] == 0){
                 let passwords = json['passwords'];
-                for(let i = 0; i < passwords.length; i++) passwords[i].password = CryptoJS.AES.decrypt(passwords[i].password, password).toString(CryptoJS.enc.Utf8);
+                for(let i = 0; i < passwords.length; i++){
+                    passwords[i].password = CryptoJS.AES.decrypt(passwords[i].password, password).toString(CryptoJS.enc.Utf8);
+                    passwords[i].message = CryptoJS.AES.decrypt(passwords[i].message, password).toString(CryptoJS.enc.Utf8);
+                }
                 localStorage.passwords = JSON.stringify(passwords);
             }else{
                 localStorage.passwords = "{}";

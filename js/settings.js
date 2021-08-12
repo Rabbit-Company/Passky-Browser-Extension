@@ -2,13 +2,16 @@ if(!isSessionValid()) window.location.href = 'index.html';
 
 document.getElementById("passwords-link").innerText = lang[localStorage.lang]["passwords"];
 document.getElementById("import-export-link").innerText = lang[localStorage.lang]["import_export"];
+document.getElementById("settings-link").innerText = lang[localStorage.lang]["settings"];
 document.getElementById("signout-link").innerText = lang[localStorage.lang]["signout"];
 
 document.getElementById("passwords-link-mobile").innerText = lang[localStorage.lang]["passwords"];
 document.getElementById("import-export-link-mobile").innerText = lang[localStorage.lang]["import_export"];
+document.getElementById("settings-link-mobile").innerText = lang[localStorage.lang]["settings"];
 document.getElementById("signout-link-mobile").innerText = lang[localStorage.lang]["signout"];
 
 document.getElementById("label-theme").innerText = lang[localStorage.lang]["theme"];
+document.getElementById("label-session-duration").innerText = lang[localStorage.lang]["session_duration"];
 
 document.getElementById("delete-account-title").innerText = lang[localStorage.lang]["delete_account"];
 document.getElementById("delete-account-text").innerText = lang[localStorage.lang]["delete_account_info"];
@@ -19,6 +22,9 @@ document.getElementById("dialog-button-cancel").innerText = lang[localStorage.la
 document.getElementById("settings-lang").value = localStorage.lang;
 document.getElementById("settings-theme").value = localStorage.theme;
 document.getElementById("settings-session").value = localStorage.sessionDuration;
+
+let minutes = document.getElementsByClassName("addMinutes");
+for(let i = 0; i < minutes.length; i++) minutes[i].innerText = minutes[i].innerText + " " + lang[localStorage.lang]["minutes"];
 
 function deleteAccount(){
     var xhr = new XMLHttpRequest();

@@ -128,6 +128,11 @@ function isPasswordPasswordValid(password){
     return true;
 }
 
+function isPasswordMessageValid(message){
+    if(message.length > 10000) return false;
+    return true;
+}
+
 function randRange(min, max) {
     var range = max - min;
     var requestBytes = Math.ceil(Math.log2(range) / 8);
@@ -164,7 +169,10 @@ function refreshPasswords(){
 
             if(json['error'] == 0){
                 let passwords = json['passwords'];
-                for(let i = 0; i < passwords.length; i++) passwords[i].password = CryptoJS.AES.decrypt(passwords[i].password, localStorage.password).toString(CryptoJS.enc.Utf8);
+                for(let i = 0; i < passwords.length; i++){
+                    passwords[i].password = CryptoJS.AES.decrypt(passwords[i].password, localStorage.password).toString(CryptoJS.enc.Utf8);
+                    passwords[i].message = CryptoJS.AES.decrypt(passwords[i].message, localStorage.password).toString(CryptoJS.enc.Utf8);
+                }
                 localStorage.passwords = JSON.stringify(passwords);
             }else{
                 localStorage.passwords = "{}";

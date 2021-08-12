@@ -2,10 +2,12 @@ if(!isSessionValid()) window.location.href = 'index.html';
 
 document.getElementById("passwords-link").innerText = lang[localStorage.lang]["passwords"];
 document.getElementById("import-export-link").innerText = lang[localStorage.lang]["import_export"];
+document.getElementById("settings-link").innerText = lang[localStorage.lang]["settings"];
 document.getElementById("signout-link").innerText = lang[localStorage.lang]["signout"];
 
 document.getElementById("passwords-link-mobile").innerText = lang[localStorage.lang]["passwords"];
 document.getElementById("import-export-link-mobile").innerText = lang[localStorage.lang]["import_export"];
+document.getElementById("settings-link-mobile").innerText = lang[localStorage.lang]["settings"];
 document.getElementById("signout-link-mobile").innerText = lang[localStorage.lang]["signout"];
 
 document.getElementById("passky-backup-btn-text").innerText = lang[localStorage.lang]["backup"];
@@ -53,10 +55,13 @@ function import_passky(){
         let website = ido["passwords"][i]["website"];
         let username = ido["passwords"][i]["username"];
         let password = (encrypted) ? CryptoJS.AES.decrypt(ido["passwords"][i]["password"], localStorage.password).toString(CryptoJS.enc.Utf8) : ido["passwords"][i]["password"];
+        let message = (encrypted) ? CryptoJS.AES.decrypt(ido["passwords"][i]["message"], localStorage.password).toString(CryptoJS.enc.Utf8) : ido["passwords"][i]["message"];
+        if(message == null) message = "";
 
         if(!isPasswordWebsiteValid(website)) continue;
         if(!isPasswordUsernameValid(username)) continue;
         if(!isPasswordPasswordValid(password)) continue;
+        if(!isPasswordMessageValid(message)) continue;
 
         let duplicated = false;
         const current_passwords = JSON.parse(localStorage.passwords);
@@ -72,6 +77,7 @@ function import_passky(){
         passwords[j]["website"] = website;
         passwords[j]["username"] = username;
         passwords[j]["password"] = CryptoJS.AES.encrypt(password, localStorage.password).toString();
+        passwords[j]["message"] = CryptoJS.AES.encrypt(message, localStorage.password).toString();
         j++;
     }
 
@@ -86,6 +92,7 @@ function backup_passky(){
     for(let i = 0; i < passwords.length; i++){
         delete passwords[i]['id'];
         passwords[i]['password'] = CryptoJS.AES.encrypt(passwords[i]['password'], localStorage.password).toString();
+        passwords[i]['message'] = CryptoJS.AES.encrypt(passwords[i]['message'], localStorage.password).toString();
     }
 
     let backup_passky = { encrypted : true, passwords : passwords };
