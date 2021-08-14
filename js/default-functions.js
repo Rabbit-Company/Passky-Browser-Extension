@@ -188,6 +188,7 @@ function refreshPasswords(){
 function clearStorage(){
     delete localStorage.password;
     delete localStorage.passwords;
+    delete localStorage.secret;
     delete localStorage.loginTime;
 }
 
