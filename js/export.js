@@ -15,14 +15,14 @@ document.getElementById("passky-backup-btn-text").innerText = lang[localStorage.
 document.getElementById("passky-import-btn-text").innerText = lang[localStorage.lang]["import"];
 document.getElementById("lastpass-import-btn-text").innerText = lang[localStorage.lang]["import"];
 document.getElementById("bitwarden-import-btn-text").innerText = lang[localStorage.lang]["import"];
-document.getElementById("dashline-import-btn-text").innerText = lang[localStorage.lang]["import"];
+document.getElementById("dashlane-import-btn-text").innerText = lang[localStorage.lang]["import"];
 document.getElementById("onepassword-import-btn-text").innerText = lang[localStorage.lang]["import"];
 document.getElementById("keeper-import-btn-text").innerText = lang[localStorage.lang]["import"];
 document.getElementById("nordpass-import-btn-text").innerText = lang[localStorage.lang]["import"];
 
 document.getElementById("passky-export-btn-text").innerText = lang[localStorage.lang]["export"];
 document.getElementById("lastpass-export-btn-text").innerText = lang[localStorage.lang]["export"];
-document.getElementById("dashline-export-btn-text").innerText = lang[localStorage.lang]["export"];
+document.getElementById("dashlane-export-btn-text").innerText = lang[localStorage.lang]["export"];
 document.getElementById("onepassword-export-btn-text").innerText = lang[localStorage.lang]["export"];
 document.getElementById("keeper-export-btn-text").innerText = lang[localStorage.lang]["export"];
 document.getElementById("nordpass-export-btn-text").innerText = lang[localStorage.lang]["export"];
