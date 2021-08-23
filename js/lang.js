@@ -19,6 +19,8 @@ const lang = {
         "try_again": "Try again",
         "success": "SUCCESS",
         "error": "ERROR",
+        "enable": "Enable",
+        "disable": "Disable",
         "delete": "Delete",
         "import": "Import",
         "import_from": "Import from {name}",
