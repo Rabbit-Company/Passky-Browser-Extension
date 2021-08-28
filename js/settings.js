@@ -90,7 +90,7 @@ function enable2fa(){
             }
             backupCodes += "</ul>";
 
-            let html = "Scan QR Code: <div style='padding: 20px; background-color: white;'><div id='qrcode'></div></div> or enter key manually: <b>" + json['secret'] + "</b></br></br>Backup codes: <b>" + backupCodes + "</b>";
+            let html = lang[localStorage.lang]["scan_qr_code"] + "<div style='padding: 20px; background-color: white;'><div id='qrcode'></div></div> " + lang[localStorage.lang]["or_enter_key_manually"] + " <b>" + json['secret'] + "</b></br></br>" + lang[localStorage.lang]["backup_codes"] + " <b>" + backupCodes + "</b>";
 
             changeDialog(3, html);
             new QRCode(document.getElementById("qrcode"), json['qrcode']);
@@ -174,6 +174,20 @@ function changeDialog(style, text){
             document.getElementById('dialog-button').innerText = lang[localStorage.lang]["signout"];
             document.getElementById('dialog-button').onclick = () => logout();
         break;
+        case 4:
+            //Enable 2fa confirmation dialog
+            document.getElementById('dialog-icon').className = "mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10";
+            document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-blue-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' aria-hidden='true'> <path stroke='none' d='M0 0h24v24H0z' fill='none'/> <path d='M7 16h-4l3.47 -4.66a2 2 0 1 0 -3.47 -1.54' /> <path d='M10 16v-8h4' /> <line x1='10' y1='12' x2='13' y2='12' /> <path d='M17 16v-6a2 2 0 0 1 4 0v6' /> <line x1='17' y1='13' x2='21' y2='13' /></svg>";
+
+            document.getElementById('dialog-title').innerText = "Two-Factor Authentication (2FA)";
+            document.getElementById('dialog-text').innerHTML = lang[localStorage.lang]["enable_2fa_question"] + "<br/><br/>" + lang[localStorage.lang]["totp_applications"] + " <b>Aegis</b>, <b>Google Auth</b>, <b>Authy</b>...";
+
+            document.getElementById('dialog-button-cancel').style.display = 'initial';
+
+            document.getElementById('dialog-button').className = "successButton inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:w-auto sm:text-sm";
+            document.getElementById('dialog-button').innerText = lang[localStorage.lang]["enable"];
+            document.getElementById('dialog-button').onclick = () => enable2fa();
+        break;
     }
 }
 
@@ -217,6 +231,7 @@ document.getElementById("toggle-2fa-btn").addEventListener("click", () => {
     if(localStorage.secret.length > 10){
         disable2fa();
     }else{
-        enable2fa();
+        changeDialog(4);
+        show('dialog');
     }
 });

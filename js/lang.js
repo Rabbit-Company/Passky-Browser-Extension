@@ -63,7 +63,12 @@ const lang = {
         "password_validation": "Password should be from 8 to 255 characters long and can not contain any spaces!",
         "password_validation2": "Password may not contain provided special characters: ' \" \\",
         "website_validation": "Website should be from 5 to 255 characters long, and must not have any spaces!",
-        "website_validation2": "Website may not contain the following special characters: ' \" \\"
+        "website_validation2": "Website may not contain the following special characters: ' \" \\",
+        "enable_2fa_question": "Are you sure you want to enable Two-Factor Authentication?",
+        "totp_applications": "Before enabling, make sure you have installed on your phone one of the following applications:",
+        "scan_qr_code": "Scan QR Code:",
+        "or_enter_key_manually": "or enter key manually:",
+        "backup_codes": "Backup codes:"
     },
     "zh-CN": {
         "server": "服务器",
