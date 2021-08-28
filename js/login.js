@@ -95,7 +95,7 @@ function login_check(){
         return;
     }
 
-    if(!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,255}$/i.test(password)){
+    if(!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&,_\(\)\=\-\.])[A-Za-z\d@$!%*#?&,_\(\)\=\-\.]{8,255}$/i.test(password)){
         changeDialog(1, errors[localStorage.lang]["5"]);
         show('dialog');
         return;
