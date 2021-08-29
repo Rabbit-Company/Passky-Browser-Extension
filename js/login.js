@@ -107,8 +107,8 @@ function login_check(){
         return;
     }
 
-    if(otp.length != 0 && otp.length != 6 && otp.length != 7){
-        changeDialog(1, "OTP contains 6 numbers.\nIf you did not setup 2FA on your account leave this field empty.");
+    if(otp.length != 0 && otp.length != 6){
+        changeDialog(1, lang[localStorage.lang]["otp_contains"] + "\n" + lang[localStorage.lang]["otp_not_setup"]);
         show('dialog');
         return;
     }

@@ -101,5 +101,5 @@ function onBtnClick(){
         }
 
     };
-    xhr.send("email=" + email);
+    xhr.send("email=" + encodeURIComponent(email));
 }
