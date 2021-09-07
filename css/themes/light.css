@@ -190,6 +190,7 @@ textarea{
 
 .importExportButtons{
     color: #374151 !important;
+    border-color: #f0f2f5 !important;
 }
 
 .importExportButtons:hover{
