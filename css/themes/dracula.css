@@ -97,6 +97,10 @@ textarea{
     border-color: #424457 !important;
 }
 
+svg{
+    stroke: #636783 !important;
+}
+
 /*
     Main menu
 */
