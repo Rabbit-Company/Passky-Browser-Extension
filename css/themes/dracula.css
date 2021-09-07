@@ -54,12 +54,12 @@
 }
 
 .successButton{
-    background-color: #50fa7b !important;
+    background-color: #bd93f9 !important;
     color: #f8f8f2 !important;
 }
 
 .successButton:hover{
-    background-color: #39f969 !important;
+    background-color: #b687f8 !important;
 }
 
 .dangerButton{
