@@ -69,7 +69,12 @@ const lang = {
         "totp_applications": "Before enabling, make sure you have installed on your phone one of the following applications:",
         "scan_qr_code": "Scan QR Code:",
         "or_enter_key_manually": "or enter key manually:",
-        "backup_codes": "Backup codes:"
+        "backup_codes": "Backup codes:",
+        "yubikey_added_succesfully": "Your Yubikey has been added succesfully",
+        "yubikey_removed_succesfully": "Your Yubikey has been removed succesfully",
+        "yubikey_insert_device": "1. Insert your Yubikey to your device.",
+        "yubikey_focus_input": "2. Click on OTP input",
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
     },
     "zh-CN": {
         "server": "服务器",

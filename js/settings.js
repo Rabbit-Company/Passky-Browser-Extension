@@ -102,9 +102,7 @@ function enable2fa(){
 
             let codes = json['codes'].split(';');
             let backupCodes = "<ul>";
-            for(let i = 0; i < codes.length; i += 2){
-                backupCodes += "<li>" + codes[i] + " " + codes[i+1] + "</li>";
-            }
+            for(let i = 0; i < codes.length; i += 2) backupCodes += "<li>" + codes[i] + " " + codes[i+1] + "</li>";
             backupCodes += "</ul>";
 
             localStorage.auth = "true";
@@ -184,13 +182,11 @@ function addYubiKey(id){
 
             let codes = json['codes'].split(';');
             let backupCodes = "<ul>";
-            for(let i = 0; i < codes.length; i += 2){
-                backupCodes += "<li>" + codes[i] + " " + codes[i+1] + "</li>";
-            }
+            for(let i = 0; i < codes.length; i += 2) backupCodes += "<li>" + codes[i] + " " + codes[i+1] + "</li>";
             backupCodes += "</ul>";
 
             localStorage.yubico = json['yubico'];
-            let html = "Your Yubikey has been added succesfully</br></br>" + lang[localStorage.lang]["backup_codes"] + " <b>" + backupCodes + "</b>";
+            let html = lang[localStorage.lang]["yubikey_added_succesfully"] + "</br></br>" + lang[localStorage.lang]["backup_codes"] + " <b>" + backupCodes + "</b>";
 
             changeDialog(7, html);
             show('dialog');
@@ -236,7 +232,7 @@ function removeYubiKey(id){
 
             localStorage.yubico = json['yubico'];
 
-            changeDialog(7, "Your Yubikey has been removed succesfully");
+            changeDialog(7, lang[localStorage.lang]["yubikey_removed_succesfully"]);
             show('dialog');
         }
 
@@ -322,7 +318,7 @@ function changeDialog(style, text){
             document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-blue-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><circle cx='8' cy='15' r='4' /><line x1='10.85' y1='12.15' x2='19' y2='4' /><line x1='18' y1='5' x2='20' y2='7' /><line x1='15' y1='8' x2='17' y2='10' /></svg>";
 
             document.getElementById('dialog-title').innerText = "Yubico One-Time Password (Yubico OTP)";
-            document.getElementById('dialog-text').innerHTML = "1. Insert Yubikey to your device.<br/>2. Click on OTP input<br/>3. Press on gold button located on your Yubikey<br/><br/><label for='yubico-otp' class='sr-only'>OTP </label><input id='yubico-otp' name='yubico-otp' type='text' autocomplete='off' required class='appearance-none rounded-none relative block w-full px-3 py-2 border rounded-md focus:outline-none focus:z-10 sm:text-sm' placeholder='OTP'></div>";
+            document.getElementById('dialog-text').innerHTML = lang[localStorage.lang]["yubikey_insert_device"] + "<br/>" + lang[localStorage.lang]["yubikey_focus_input"] + "<br/>" + lang[localStorage.lang]["yubikey_press_button"] + "<br/><br/><label for='yubico-otp' class='sr-only'>OTP </label><input id='yubico-otp' name='yubico-otp' type='text' autocomplete='off' required class='appearance-none rounded-none relative block w-full px-3 py-2 border rounded-md focus:outline-none focus:z-10 sm:text-sm' placeholder='OTP'></div>";
 
             document.getElementById('dialog-button-cancel').style.display = 'initial';
 
@@ -350,7 +346,7 @@ function changeDialog(style, text){
             document.getElementById('dialog-icon').innerHTML = "<svg class='h-6 w-6 text-blue-600' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><circle cx='8' cy='15' r='4' /><line x1='10.85' y1='12.15' x2='19' y2='4' /><line x1='18' y1='5' x2='20' y2='7' /><line x1='15' y1='8' x2='17' y2='10' /></svg>";
 
             document.getElementById('dialog-title').innerText = "Yubico One-Time Password (Yubico OTP)";
-            document.getElementById('dialog-text').innerHTML = "1. Insert Yubikey to your device.<br/>2. Click on OTP input<br/>3. Press on gold button located on your Yubikey<br/><br/><label for='yubico-otp' class='sr-only'>OTP </label><input id='yubico-otp' name='yubico-otp' type='text' autocomplete='off' required class='appearance-none rounded-none relative block w-full px-3 py-2 border rounded-md focus:outline-none focus:z-10 sm:text-sm' placeholder='OTP'></div>";
+            document.getElementById('dialog-text').innerHTML = lang[localStorage.lang]["yubikey_insert_device"] + "<br/>" + lang[localStorage.lang]["yubikey_focus_input"] + "<br/>" + lang[localStorage.lang]["yubikey_press_button"] + "<br/><br/><label for='yubico-otp' class='sr-only'>OTP </label><input id='yubico-otp' name='yubico-otp' type='text' autocomplete='off' required class='appearance-none rounded-none relative block w-full px-3 py-2 border rounded-md focus:outline-none focus:z-10 sm:text-sm' placeholder='OTP'></div>";
 
             document.getElementById('dialog-button-cancel').style.display = 'initial';
 
