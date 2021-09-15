@@ -186,7 +186,7 @@ function addYubiKey(id){
             backupCodes += "</ul>";
 
             localStorage.yubico = json['yubico'];
-            let html = lang[localStorage.lang]["yubikey_added_succesfully"] + "</br></br>" + lang[localStorage.lang]["backup_codes"] + " <b>" + backupCodes + "</b>";
+            let html = lang[localStorage.lang]["yubikey_added_successfully"] + "</br></br>" + lang[localStorage.lang]["backup_codes"] + " <b>" + backupCodes + "</b>";
 
             changeDialog(7, html);
             show('dialog');
@@ -232,7 +232,7 @@ function removeYubiKey(id){
 
             localStorage.yubico = json['yubico'];
 
-            changeDialog(7, lang[localStorage.lang]["yubikey_removed_succesfully"]);
+            changeDialog(7, lang[localStorage.lang]["yubikey_removed_successfully"]);
             show('dialog');
         }
 
