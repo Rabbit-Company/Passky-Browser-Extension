@@ -37,7 +37,14 @@ if(localStorage.auth == "true"){
 if(typeof(localStorage.yubico) == 'undefined' || localStorage.yubico == null || localStorage.yubico == ""){
     hide("remove-yubico-btn");
 }else{
-    if(localStorage.yubico.split(";").length >= 5) hide("add-yubico-btn");
+    let yubico = localStorage.yubico.split(";");
+    if(yubico.length >= 5) hide("add-yubico-btn");
+
+    let html = "";
+    for(let i = 0; i < yubico.length; i++){
+        html += "<li class='passwordsBorderColor py-4 flex'><img class='h-10 w-10 rounded-full' src='images/yubikey.png' alt='Yubico Key'><div class='ml-3'><p class='secondaryColor text-sm font-medium'>" + yubico[i] + "</p></div></li>";
+    }
+    document.getElementById('yubico-list').innerHTML = html;
 }
 
 
