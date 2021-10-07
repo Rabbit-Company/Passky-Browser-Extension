@@ -167,13 +167,20 @@ function export_lastpass(){
 
     if(!isSessionValid()) window.location.href = 'index.html';
 
-    let export_data = "url,username,password,totp,extra,name,grouping,fav";
+    let exportedPasswords = [];
     let passwords = JSON.parse(readData('passwords'));
     for(let i = 0; i < passwords.length; i++){
-        export_data += "\n" + passwords[i]["website"] + "," + passwords[i]["username"] + "," + CryptoJS.AES.decrypt(passwords[i]["password"], decryptPassword(readData('password'))).toString(CryptoJS.enc.Utf8) + ",,," + passwords[i]["website"] + ",,0";
+        exportedPasswords[i] = {};
+        exportedPasswords[i].url = passwords[i]["website"];
+        exportedPasswords[i].username = passwords[i]["username"];
+        exportedPasswords[i].password = CryptoJS.AES.decrypt(passwords[i]["password"], decryptPassword(readData('password'))).toString(CryptoJS.enc.Utf8);
+        exportedPasswords[i].totp = null;
+        exportedPasswords[i].extra = CryptoJS.AES.decrypt(passwords[i]["message"], decryptPassword(readData('password'))).toString(CryptoJS.enc.Utf8);
+        exportedPasswords[i].name = passwords[i]["website"];
+        exportedPasswords[i].grouping = null;
+        exportedPasswords[i].fav = 0;
     }
-
-    downloadTxt(export_data, "lastpass_" + getDate(new Date()));
+    downloadTxt($.csv.fromObjects(exportedPasswords), "lastpass_" + getDate(new Date()));
 }
 
 function import_bitwarden(){
