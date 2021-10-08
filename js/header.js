@@ -1,6 +1,7 @@
 var storageData = {};
 
 function writeData(key, data){
+    data = String(data);
     try{
         chrome.storage.local.set({[key]: data});
     }catch{

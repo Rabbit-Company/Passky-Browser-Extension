@@ -34,13 +34,13 @@ if(readData('auth') == "true"){
     document.getElementById("toggle-2fa-btn").className = "successButton font-bold inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md focus:outline-none sm:text-sm";
 }
 
-if(typeof(readData('yubico')) == 'undefined' || readData('yubico') == null || readData('yubico') == ""){
+if(readData('yubico') == "null" || readData('yubico') == ''){
     hide("remove-yubico-btn");
 }else{
     let yubico = readData('yubico').split(";");
     if(yubico.length >= 5) hide("add-yubico-btn");
 
-    if(readData('yubico') != "null"){
+    if(readData('yubico') != "null" && readData('yubico') != ''){
         let html = "";
         for(let i = 0; i < yubico.length; i++){
             html += "<li class='passwordsBorderColor py-4 flex'><img class='h-10 w-10 rounded-full' src='images/yubikey.png' alt='Yubico Key'><div class='ml-3'><p class='secondaryColor text-sm font-medium'>" + yubico[i] + "</p></div></li>";
@@ -232,7 +232,7 @@ function removeYubiKey(id){
                 return;
             }
 
-            writeData('yubico', json['yubico']);
+            writeData('yubico', String(json['yubico']));
 
             changeDialog(7, lang[readData('lang')]["yubikey_removed_successfully"]);
             show('dialog');
