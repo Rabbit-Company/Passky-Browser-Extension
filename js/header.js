@@ -66,4 +66,4 @@ document.onkeydown = function(e) {
     if(e.ctrlKey && (e.key == 'u' || e.key == 'U')) return false;
 }
 
-//document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('contextmenu', e => e.preventDefault());
