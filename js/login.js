@@ -85,7 +85,7 @@ function login_check(){
     const url = document.getElementById("passky-server").value;
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    const otp = document.getElementById("otp").value;
+    const otp = document.getElementById("otp").value.replace(/\s/g, '');
 
     if(url.length == 0 || username.length == 0 || password.length == 0) return;
 
