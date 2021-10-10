@@ -1,37 +1,29 @@
-if(!isSessionValid()) window.location.href = 'index.html';
+initStorageCache.then(() => {
 
-document.getElementById("passwords-link").innerText = lang[readData('lang')]["passwords"];
-document.getElementById("import-export-link").innerText = lang[readData('lang')]["import_export"];
-document.getElementById("settings-link").innerText = lang[readData('lang')]["settings"];
-document.getElementById("signout-link").innerText = lang[readData('lang')]["signout"];
+    if(!isSessionValid()) window.location.href = 'index.html';
 
-document.getElementById("passwords-link-mobile").innerText = lang[readData('lang')]["passwords"];
-document.getElementById("import-export-link-mobile").innerText = lang[readData('lang')]["import_export"];
-document.getElementById("settings-link-mobile").innerText = lang[readData('lang')]["settings"];
-document.getElementById("signout-link-mobile").innerText = lang[readData('lang')]["signout"];
+    document.getElementById("passwords-link").innerText = lang[readData('lang')]["passwords"];
+    document.getElementById("import-export-link").innerText = lang[readData('lang')]["import_export"];
+    document.getElementById("settings-link").innerText = lang[readData('lang')]["settings"];
+    document.getElementById("signout-link").innerText = lang[readData('lang')]["signout"];
+    
+    document.getElementById("passwords-link-mobile").innerText = lang[readData('lang')]["passwords"];
+    document.getElementById("import-export-link-mobile").innerText = lang[readData('lang')]["import_export"];
+    document.getElementById("settings-link-mobile").innerText = lang[readData('lang')]["settings"];
+    document.getElementById("signout-link-mobile").innerText = lang[readData('lang')]["signout"];
+    
+    document.getElementById("passky-backup-btn-text").innerText = lang[readData('lang')]["backup"];
+    
+    document.getElementById("passky-import-btn-text").innerText = lang[readData('lang')]["import"];
+    document.getElementById("lastpass-import-btn-text").innerText = lang[readData('lang')]["import"];
+    document.getElementById("bitwarden-import-btn-text").innerText = lang[readData('lang')]["import"];
+    
+    document.getElementById("passky-export-btn-text").innerText = lang[readData('lang')]["export"];
+    document.getElementById("lastpass-export-btn-text").innerText = lang[readData('lang')]["export"];
+    
+    document.getElementById("dialog-button-cancel").innerText = lang[readData('lang')]["cancel"];
 
-document.getElementById("passky-backup-btn-text").innerText = lang[readData('lang')]["backup"];
-
-document.getElementById("passky-import-btn-text").innerText = lang[readData('lang')]["import"];
-document.getElementById("lastpass-import-btn-text").innerText = lang[readData('lang')]["import"];
-document.getElementById("bitwarden-import-btn-text").innerText = lang[readData('lang')]["import"];
-/*
-document.getElementById("dashlane-import-btn-text").innerText = lang[readData('lang')]["import"];
-document.getElementById("onepassword-import-btn-text").innerText = lang[readData('lang')]["import"];
-document.getElementById("keeper-import-btn-text").innerText = lang[readData('lang')]["import"];
-document.getElementById("nordpass-import-btn-text").innerText = lang[readData('lang')]["import"];
-*/
-
-document.getElementById("passky-export-btn-text").innerText = lang[readData('lang')]["export"];
-document.getElementById("lastpass-export-btn-text").innerText = lang[readData('lang')]["export"];
-/*
-document.getElementById("dashlane-export-btn-text").innerText = lang[readData('lang')]["export"];
-document.getElementById("onepassword-export-btn-text").innerText = lang[readData('lang')]["export"];
-document.getElementById("keeper-export-btn-text").innerText = lang[readData('lang')]["export"];
-document.getElementById("nordpass-export-btn-text").innerText = lang[readData('lang')]["export"];
-*/
-
-document.getElementById("dialog-button-cancel").innerText = lang[readData('lang')]["cancel"];
+});
 
 function import_passky(){
 

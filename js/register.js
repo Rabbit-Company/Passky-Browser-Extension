@@ -1,14 +1,18 @@
-if(readData('url') !== null && typeof(readData('url')) !== 'undefined') document.getElementById('passky-server').value = readData('url');
+initStorageCache.then(() => {
 
-document.getElementById("passky-server").placeholder = lang[readData('lang')]["server"];
-document.getElementById("username").placeholder = lang[readData('lang')]["username"];
-document.getElementById("email").placeholder = lang[readData('lang')]["email"];
-document.getElementById("password").placeholder = lang[readData('lang')]["password"];
-document.getElementById("tos").innerText = lang[readData('lang')]["terms_of_service"];
-document.getElementById("btn-dialog").innerText = lang[readData('lang')]["okay"];
-document.getElementById("error-dialog-modal-title").innerText = lang[readData('lang')]["error"];
-document.getElementById("btn_signup").innerText = lang[readData('lang')]["signup"];
-document.getElementById("btn_signin").innerText = lang[readData('lang')]["signin"];
+    if(readData('url') !== null && typeof(readData('url')) !== 'undefined') document.getElementById('passky-server').value = readData('url');
+
+    document.getElementById("passky-server").placeholder = lang[readData('lang')]["server"];
+    document.getElementById("username").placeholder = lang[readData('lang')]["username"];
+    document.getElementById("email").placeholder = lang[readData('lang')]["email"];
+    document.getElementById("password").placeholder = lang[readData('lang')]["password"];
+    document.getElementById("tos").innerText = lang[readData('lang')]["terms_of_service"];
+    document.getElementById("btn-dialog").innerText = lang[readData('lang')]["okay"];
+    document.getElementById("error-dialog-modal-title").innerText = lang[readData('lang')]["error"];
+    document.getElementById("btn_signup").innerText = lang[readData('lang')]["signup"];
+    document.getElementById("btn_signin").innerText = lang[readData('lang')]["signin"];
+
+});
 
 document.getElementById("signup-form").addEventListener("submit", e => {
     e.preventDefault();

@@ -35,7 +35,6 @@ const initStorageCache = getAllStorageData().then(items => {
     setTheme();
 });
 
-
 function getAllStorageData() {
     return new Promise((resolve, reject) => {
         try{

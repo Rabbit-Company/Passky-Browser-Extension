@@ -1,15 +1,19 @@
-if(isSessionValid()) window.location.href = 'passwords.html';
+initStorageCache.then(() => {
 
-if(readData('url') !== null && typeof(readData('url')) !== 'undefined') document.getElementById('passky-server').value = readData('url');
-if(readData('username') !== null && typeof(readData('username')) !== 'undefined') document.getElementById('username').value = readData('username');
+    if(isSessionValid()) window.location.href = 'passwords.html';
 
-//Languages
-document.getElementById("passky-server").placeholder = lang[readData('lang')]["server"];
-document.getElementById("username").placeholder = lang[readData('lang')]["username"];
-document.getElementById("password").placeholder = lang[readData('lang')]["password"];
-document.getElementById("btn_signin").innerText = lang[readData('lang')]["signin"];
-document.getElementById("btn_signup").innerText = lang[readData('lang')]["signup"];
-document.getElementById("forgot_username").innerText = lang[readData('lang')]["forgot_username"];
+    if(readData('url') !== null && typeof(readData('url')) !== 'undefined') document.getElementById('passky-server').value = readData('url');
+    if(readData('username') !== null && typeof(readData('username')) !== 'undefined') document.getElementById('username').value = readData('username');
+    
+    //Languages
+    document.getElementById("passky-server").placeholder = lang[readData('lang')]["server"];
+    document.getElementById("username").placeholder = lang[readData('lang')]["username"];
+    document.getElementById("password").placeholder = lang[readData('lang')]["password"];
+    document.getElementById("btn_signin").innerText = lang[readData('lang')]["signin"];
+    document.getElementById("btn_signup").innerText = lang[readData('lang')]["signup"];
+    document.getElementById("forgot_username").innerText = lang[readData('lang')]["forgot_username"];
+
+});
 
 document.getElementById("login_form").addEventListener("submit", e => {
     e.preventDefault();

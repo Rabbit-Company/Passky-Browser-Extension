@@ -1,57 +1,60 @@
-if(!isSessionValid()) window.location.href = 'index.html';
+initStorageCache.then(() => {
 
-document.getElementById("passwords-link").innerText = lang[readData('lang')]["passwords"];
-document.getElementById("import-export-link").innerText = lang[readData('lang')]["import_export"];
-document.getElementById("settings-link").innerText = lang[readData('lang')]["settings"];
-document.getElementById("signout-link").innerText = lang[readData('lang')]["signout"];
+    if(!isSessionValid()) window.location.href = 'index.html';
 
-document.getElementById("passwords-link-mobile").innerText = lang[readData('lang')]["passwords"];
-document.getElementById("import-export-link-mobile").innerText = lang[readData('lang')]["import_export"];
-document.getElementById("settings-link-mobile").innerText = lang[readData('lang')]["settings"];
-document.getElementById("signout-link-mobile").innerText = lang[readData('lang')]["signout"];
-
-document.getElementById("label-theme").innerText = lang[readData('lang')]["theme"];
-document.getElementById("label-session-duration").innerText = lang[readData('lang')]["session_duration"];
-
-document.getElementById("add-yubico-btn").innerText = lang[readData('lang')]["add"];
-document.getElementById("remove-yubico-btn").innerText = lang[readData('lang')]["remove"];
-
-document.getElementById("delete-account-title").innerText = lang[readData('lang')]["delete_account"];
-document.getElementById("delete-account-text").innerText = lang[readData('lang')]["delete_account_info"];
-document.getElementById("delete-account-btn").innerText = lang[readData('lang')]["delete_account"];
-
-document.getElementById("dialog-button-cancel").innerText = lang[readData('lang')]["cancel"];
-
-document.getElementById("settings-lang").value = readData('lang');
-document.getElementById("settings-theme").value = readData('theme');
-document.getElementById("settings-session").value = readData('sessionDuration');
-
-if(readData('auth') == "true"){
-    document.getElementById("toggle-2fa-btn").innerText = lang[readData('lang')]["disable"];
-    document.getElementById("toggle-2fa-btn").className = "dangerButton font-bold inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md focus:outline-none sm:text-sm";
-}else{
-    document.getElementById("toggle-2fa-btn").innerText = lang[readData('lang')]["enable"];
-    document.getElementById("toggle-2fa-btn").className = "successButton font-bold inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md focus:outline-none sm:text-sm";
-}
-
-if(readData('yubico') == "null" || readData('yubico') == ''){
-    hide("remove-yubico-btn");
-}else{
-    let yubico = readData('yubico').split(";");
-    if(yubico.length >= 5) hide("add-yubico-btn");
-
-    if(readData('yubico') != "null" && readData('yubico') != ''){
-        let html = "";
-        for(let i = 0; i < yubico.length; i++){
-            html += "<li class='passwordsBorderColor py-4 flex'><img class='h-10 w-10 rounded-full' src='images/yubikey.png' alt='Yubico Key'><div class='ml-3'><p class='secondaryColor text-sm font-medium'>" + yubico[i] + "</p></div></li>";
-        }
-        document.getElementById('yubico-list').innerHTML = html;
+    document.getElementById("passwords-link").innerText = lang[readData('lang')]["passwords"];
+    document.getElementById("import-export-link").innerText = lang[readData('lang')]["import_export"];
+    document.getElementById("settings-link").innerText = lang[readData('lang')]["settings"];
+    document.getElementById("signout-link").innerText = lang[readData('lang')]["signout"];
+    
+    document.getElementById("passwords-link-mobile").innerText = lang[readData('lang')]["passwords"];
+    document.getElementById("import-export-link-mobile").innerText = lang[readData('lang')]["import_export"];
+    document.getElementById("settings-link-mobile").innerText = lang[readData('lang')]["settings"];
+    document.getElementById("signout-link-mobile").innerText = lang[readData('lang')]["signout"];
+    
+    document.getElementById("label-theme").innerText = lang[readData('lang')]["theme"];
+    document.getElementById("label-session-duration").innerText = lang[readData('lang')]["session_duration"];
+    
+    document.getElementById("add-yubico-btn").innerText = lang[readData('lang')]["add"];
+    document.getElementById("remove-yubico-btn").innerText = lang[readData('lang')]["remove"];
+    
+    document.getElementById("delete-account-title").innerText = lang[readData('lang')]["delete_account"];
+    document.getElementById("delete-account-text").innerText = lang[readData('lang')]["delete_account_info"];
+    document.getElementById("delete-account-btn").innerText = lang[readData('lang')]["delete_account"];
+    
+    document.getElementById("dialog-button-cancel").innerText = lang[readData('lang')]["cancel"];
+    
+    document.getElementById("settings-lang").value = readData('lang');
+    document.getElementById("settings-theme").value = readData('theme');
+    document.getElementById("settings-session").value = readData('sessionDuration');
+    
+    if(readData('auth') == "true"){
+        document.getElementById("toggle-2fa-btn").innerText = lang[readData('lang')]["disable"];
+        document.getElementById("toggle-2fa-btn").className = "dangerButton font-bold inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md focus:outline-none sm:text-sm";
+    }else{
+        document.getElementById("toggle-2fa-btn").innerText = lang[readData('lang')]["enable"];
+        document.getElementById("toggle-2fa-btn").className = "successButton font-bold inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md focus:outline-none sm:text-sm";
     }
-}
-
-
-let minutes = document.getElementsByClassName("addMinutes");
-for(let i = 0; i < minutes.length; i++) minutes[i].innerText = minutes[i].innerText + " " + lang[readData('lang')]["minutes"];
+    
+    if(readData('yubico') == "null" || readData('yubico') == ''){
+        hide("remove-yubico-btn");
+    }else{
+        let yubico = readData('yubico').split(";");
+        if(yubico.length >= 5) hide("add-yubico-btn");
+    
+        if(readData('yubico') != "null" && readData('yubico') != ''){
+            let html = "";
+            for(let i = 0; i < yubico.length; i++){
+                html += "<li class='passwordsBorderColor py-4 flex'><img class='h-10 w-10 rounded-full' src='images/yubikey.png' alt='Yubico Key'><div class='ml-3'><p class='secondaryColor text-sm font-medium'>" + yubico[i] + "</p></div></li>";
+            }
+            document.getElementById('yubico-list').innerHTML = html;
+        }
+    }
+    
+    let minutes = document.getElementsByClassName("addMinutes");
+    for(let i = 0; i < minutes.length; i++) minutes[i].innerText = minutes[i].innerText + " " + lang[readData('lang')]["minutes"];
+    
+});
 
 function deleteAccount(){
     var xhr = new XMLHttpRequest();
