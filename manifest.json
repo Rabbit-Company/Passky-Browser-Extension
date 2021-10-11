@@ -1,7 +1,7 @@
 {
   "name": "Passky",
   "description": "Simple, modern, open source and secure password manager.",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "manifest_version": 2,
   "author": "Rabbit Company LLC",
   "permissions": ["clipboardWrite", "tabs", "storage"],
