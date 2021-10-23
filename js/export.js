@@ -77,6 +77,12 @@ function import_passky(){
         j++;
     }
 
+    if(passwords.length == 0){
+        changeDialog(3, lang[readData('lang')]["import_success"].replace("{success_number}", "0"));
+        show('dialog');
+        return;
+    }
+
     import_data(passwords);
 }
 
@@ -152,6 +158,13 @@ function import_nordpass(){
         passwords[j]["message"] = CryptoJS.AES.encrypt(message, decryptPassword(readData('password'))).toString();
         j++;
     }
+
+    if(passwords.length == 0){
+        changeDialog(3, lang[readData('lang')]["import_success"].replace("{success_number}", "0"));
+        show('dialog');
+        return;
+    }
+
     import_data(passwords);
 }
 
@@ -227,6 +240,13 @@ function import_lastpass(){
         passwords[j]["message"] = CryptoJS.AES.encrypt(message, decryptPassword(readData('password'))).toString();
         j++;
     }
+
+    if(passwords.length == 0){
+        changeDialog(3, lang[readData('lang')]["import_success"].replace("{success_number}", "0"));
+        show('dialog');
+        return;
+    }
+
     import_data(passwords);
 }
 
@@ -310,6 +330,13 @@ function import_bitwarden(){
         passwords[j]["message"] = CryptoJS.AES.encrypt(message, decryptPassword(readData('password'))).toString();
         j++;
     }
+
+    if(passwords.length == 0){
+        changeDialog(3, lang[readData('lang')]["import_success"].replace("{success_number}", "0"));
+        show('dialog');
+        return;
+    }
+
     import_data(passwords);
 }
 
@@ -354,6 +381,13 @@ function import_dashlane(){
         passwords[j]["message"] = CryptoJS.AES.encrypt(message, decryptPassword(readData('password'))).toString();
         j++;
     }
+
+    if(passwords.length == 0){
+        changeDialog(3, lang[readData('lang')]["import_success"].replace("{success_number}", "0"));
+        show('dialog');
+        return;
+    }
+
     import_data(passwords);
 }
 
