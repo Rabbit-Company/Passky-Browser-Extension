@@ -1,7 +1,5 @@
 initStorageCache.then(() => {
 
-    if(!isSessionValid()) window.location.href = 'index.html';
-
     document.getElementById("passwords-link").innerText = lang[readData('lang')]["passwords"];
     document.getElementById("import-export-link").innerText = lang[readData('lang')]["import_export"];
     document.getElementById("settings-link").innerText = lang[readData('lang')]["settings"];
@@ -23,6 +21,9 @@ initStorageCache.then(() => {
     
     document.getElementById("dialog-button-cancel").innerText = lang[readData('lang')]["cancel"];
 
+    window.setInterval(function(){
+        if(!isSessionValid()) logout();
+    }, 5000);
 });
 
 function import_passky(){
