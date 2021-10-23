@@ -110,6 +110,81 @@ function export_passky(){
     downloadObjectAsJson(export_passky, "passky_export_" + getDate(new Date()));
 }
 
+function import_nordpass(){
+
+    if(!isSessionValid()) window.location.href = 'index.html';
+
+    let ido = "";
+    try{
+        ido = $.csv.toArrays(document.getElementById("import-data").value);
+    }catch{
+        changeDialog(2, 1, 4);
+        return;
+    }
+
+    let passwords = [];
+    for(let i = 1, j = 0; i < ido.length; i++){
+        let website = ido[i][1].replace("http://", "").replace("https://", "").replace("www.", "").replace(" ", "-");
+        if(website.slice(-1) == '/') website = website.slice(0, -1);
+        let username = ido[i][2];
+        let password = ido[i][3];
+        let message = ido[i][4];
+
+        if(!isPasswordWebsiteValid(website)) continue;
+        if(!isPasswordUsernameValid(username)) continue;
+        if(!isPasswordPasswordValid(password)) continue;
+        if(!isPasswordMessageValid(message)) continue;
+
+        let duplicated = false;
+        const current_passwords = JSON.parse(readData('passwords'));
+        for(let k = 0; k < current_passwords.length; k++){
+            if(current_passwords[k]["website"] == website && current_passwords[k]["username"] == username && CryptoJS.AES.decrypt(current_passwords[k]["password"], decryptPassword(readData('password'))).toString(CryptoJS.enc.Utf8) == password){
+                duplicated = true;
+                break;
+            }
+        }
+        if(duplicated) continue;
+
+        passwords[j] = {};
+        passwords[j]["website"] = website;
+        passwords[j]["username"] = username;
+        passwords[j]["password"] = CryptoJS.AES.encrypt(password, decryptPassword(readData('password'))).toString();
+        passwords[j]["message"] = CryptoJS.AES.encrypt(message, decryptPassword(readData('password'))).toString();
+        j++;
+    }
+    import_data(passwords);
+}
+
+function export_nordpass(){
+    if(!isSessionValid()) window.location.href = 'index.html';
+
+    let exportedPasswords = [];
+    let passwords = JSON.parse(readData('passwords'));
+    for(let i = 0; i < passwords.length; i++){
+        exportedPasswords[i] = {};
+        exportedPasswords[i].name = passwords[i]["website"];
+        exportedPasswords[i].url = passwords[i]["website"];
+        exportedPasswords[i].username = passwords[i]["username"];
+        exportedPasswords[i].password = CryptoJS.AES.decrypt(passwords[i]["password"], decryptPassword(readData('password'))).toString(CryptoJS.enc.Utf8);
+        exportedPasswords[i].note = (passwords[i]["message"] != null) ? CryptoJS.AES.decrypt(passwords[i]["message"], decryptPassword(readData('password'))).toString(CryptoJS.enc.Utf8) : "";
+        exportedPasswords[i].cardholdername = null;
+        exportedPasswords[i].cardnumber = null;
+        exportedPasswords[i].cvc = null;
+        exportedPasswords[i].expirydate = null;
+        exportedPasswords[i].zipcode = null;
+        exportedPasswords[i].folder = null;
+        exportedPasswords[i].full_name = null;
+        exportedPasswords[i].phone_number = null;
+        exportedPasswords[i].email = null;
+        exportedPasswords[i].address1 = null;
+        exportedPasswords[i].address2 = null;
+        exportedPasswords[i].city = null;
+        exportedPasswords[i].country = null;
+        exportedPasswords[i].state = null;
+    }
+    downloadTxt($.csv.fromObjects(exportedPasswords), "nordpass_" + getDate(new Date()) + ".csv");
+}
+
 function import_lastpass(){
 
     if(!isSessionValid()) window.location.href = 'index.html';
@@ -382,6 +457,11 @@ function changeDialog(style, text, text2){
                     document.getElementById('import-data').placeholder = "Paste data from Dashlane's exported csv file.";
                     document.getElementById('dialog-button').onclick = () => import_dashlane();
                 break;
+                case 4:
+                    document.getElementById('dialog-title').innerText = lang[readData('lang')]["import_from"].replace("{name}","NordPass");
+                    document.getElementById('import-data').placeholder = "Paste data from NordPass's exported csv file.";
+                    document.getElementById('dialog-button').onclick = () => import_nordpass();
+                break;
             }
         break;
         case 2:
@@ -452,6 +532,20 @@ document.getElementById("passky-export-btn").addEventListener("click", () => {
     export_passky();
 });
 
+document.getElementById("bitwarden-import-btn").addEventListener("click", () => {
+    changeDialog(1, 2);
+    show('dialog');
+});
+
+document.getElementById("nordpass-import-btn").addEventListener("click", () => {
+    changeDialog(1, 4);
+    show('dialog');
+});
+
+document.getElementById("nordpass-export-btn").addEventListener("click", () => {
+    export_nordpass();
+});
+
 document.getElementById("lastpass-import-btn").addEventListener("click", () => {
     changeDialog(1, 1);
     show('dialog');
@@ -459,11 +553,6 @@ document.getElementById("lastpass-import-btn").addEventListener("click", () => {
 
 document.getElementById("lastpass-export-btn").addEventListener("click", () => {
     export_lastpass();
-});
-
-document.getElementById("bitwarden-import-btn").addEventListener("click", () => {
-    changeDialog(1, 2);
-    show('dialog');
 });
 
 document.getElementById("dashlane-import-btn").addEventListener("click", () => {
