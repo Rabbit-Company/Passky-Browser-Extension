@@ -239,6 +239,24 @@ function export_nordpass(){
     downloadTxt($.csv.fromObjects(exportedPasswords), "nordpass_" + getDate(new Date()) + ".csv");
 }
 
+function export_keeper(){
+    if(!isSessionValid()) window.location.href = 'index.html';
+
+    let exportedPasswords = [];
+    let passwords = JSON.parse(readData('passwords'));
+    for(let i = 0; i < passwords.length; i++){
+        exportedPasswords[i] = {};
+        exportedPasswords[i].Folder = null;
+        exportedPasswords[i].Title = passwords[i]["website"];
+        exportedPasswords[i].Login = passwords[i]["username"];
+        exportedPasswords[i].Password = CryptoJS.AES.decrypt(passwords[i]["password"], decryptPassword(readData('password'))).toString(CryptoJS.enc.Utf8);
+        exportedPasswords[i].URL = passwords[i]["website"];
+        exportedPasswords[i].Notes = (passwords[i]["message"] != null) ? CryptoJS.AES.decrypt(passwords[i]["message"], decryptPassword(readData('password'))).toString(CryptoJS.enc.Utf8) : "";
+    }
+
+    downloadTxt($.csv.fromObjects(exportedPasswords), "keeper_" + getDate(new Date()) + ".csv");
+}
+
 function export_lastpass(){
 
     if(!isSessionValid()) window.location.href = 'index.html';
@@ -320,6 +338,13 @@ function import_csv(id){
         break;
         case 5:
             //KeePassXC
+            websiteID = 4;
+            usernameID = 2;
+            passwordID = 3;
+            messageID = 5;
+        break;
+        case 6:
+            //Keeper
             websiteID = 4;
             usernameID = 2;
             passwordID = 3;
@@ -456,6 +481,11 @@ function changeDialog(style, text, text2){
                     document.getElementById('import-data').placeholder = "Paste data from KeePassXC's exported csv file.";
                     document.getElementById('dialog-button').onclick = () => import_csv(5);
                 break;
+                case 6:
+                    document.getElementById('dialog-title').innerText = lang[readData('lang')]["import_from"].replace("{name}","Keeper");
+                    document.getElementById('import-data').placeholder = "Paste data from Keeper's exported csv file.";
+                    document.getElementById('dialog-button').onclick = () => import_csv(6);
+                break;
             }
         break;
         case 2:
@@ -547,6 +577,15 @@ document.getElementById("nordpass-import-btn").addEventListener("click", () => {
 
 document.getElementById("nordpass-export-btn").addEventListener("click", () => {
     export_nordpass();
+});
+
+document.getElementById("keeper-import-btn").addEventListener("click", () => {
+    changeDialog(1, 6);
+    show('dialog');
+});
+
+document.getElementById("keeper-export-btn").addEventListener("click", () => {
+    export_keeper();
 });
 
 document.getElementById("lastpass-import-btn").addEventListener("click", () => {
