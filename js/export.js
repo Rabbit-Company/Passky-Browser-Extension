@@ -350,6 +350,13 @@ function import_csv(id){
             passwordID = 3;
             messageID = 5;
         break;
+        case 7:
+            //1Password
+            websiteID = 4;
+            usernameID = 2;
+            passwordID = 3;
+            messageID = 8;
+        break;
     }
 
     let passwords = [];
@@ -486,6 +493,11 @@ function changeDialog(style, text, text2){
                     document.getElementById('import-data').placeholder = "Paste data from Keeper's exported csv file.";
                     document.getElementById('dialog-button').onclick = () => import_csv(6);
                 break;
+                case 7:
+                    document.getElementById('dialog-title').innerText = lang[readData('lang')]["import_from"].replace("{name}","1Password");
+                    document.getElementById('import-data').placeholder = "Paste data from 1Password's exported csv file.";
+                    document.getElementById('dialog-button').onclick = () => import_csv(7);
+                break;
             }
         break;
         case 2:
@@ -577,6 +589,11 @@ document.getElementById("nordpass-import-btn").addEventListener("click", () => {
 
 document.getElementById("nordpass-export-btn").addEventListener("click", () => {
     export_nordpass();
+});
+
+document.getElementById("onepassword-import-btn").addEventListener("click", () => {
+    changeDialog(1, 7);
+    show('dialog');
 });
 
 document.getElementById("keeper-import-btn").addEventListener("click", () => {
