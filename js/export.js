@@ -313,6 +313,7 @@ function import_csv(id){
     let usernameID = 0;
     let passwordID = 0;
     let messageID = 0;
+    let titleID = 0;
 
     switch(id){
         case 1:
@@ -321,6 +322,7 @@ function import_csv(id){
             usernameID = 1;
             passwordID = 2;
             messageID = 4;
+            titleID = 5;
         break;
         case 3:
             //Dashlane
@@ -328,6 +330,7 @@ function import_csv(id){
             usernameID = 0;
             passwordID = 4;
             messageID = 5;
+            titleID = 3;
         break;
         case 4:
             //NordPass
@@ -335,6 +338,7 @@ function import_csv(id){
             usernameID = 2;
             passwordID = 3;
             messageID = 4;
+            titleID = 0;
         break;
         case 5:
             //KeePassXC
@@ -342,6 +346,7 @@ function import_csv(id){
             usernameID = 2;
             passwordID = 3;
             messageID = 5;
+            titleID = 1;
         break;
         case 6:
             //Keeper
@@ -349,6 +354,7 @@ function import_csv(id){
             usernameID = 2;
             passwordID = 3;
             messageID = 5;
+            titleID = 1;
         break;
         case 7:
             //1Password
@@ -356,6 +362,7 @@ function import_csv(id){
             usernameID = 2;
             passwordID = 3;
             messageID = 8;
+            titleID = 1;
         break;
     }
 
@@ -363,6 +370,12 @@ function import_csv(id){
     for(let i = 1, j = 0; i < ido.length; i++){
         let website = ido[i][websiteID].replace("http://", "").replace("https://", "").replace("www.", "").replace(" ", "-");
         if(website.slice(-1) == '/') website = website.slice(0, -1);
+
+        if(!isPasswordWebsiteValid(website)){
+            website = ido[i][titleID].replace("http://", "").replace("https://", "").replace("www.", "").replace(" ", "-");
+            if(website.slice(-1) == '/') website = website.slice(0, -1);
+        }
+
         let username = ido[i][usernameID];
         let password = ido[i][passwordID];
         let message = ido[i][messageID];
