@@ -87,7 +87,7 @@ function changeDialog(style, text){
 function login_check(){
 
     const url = document.getElementById("passky-server").value;
-    const username = document.getElementById("username").value;
+    const username = document.getElementById("username").value.toLowerCase();
     const password = document.getElementById("password").value;
     const otp = document.getElementById("otp").value.replace(/\s/g, '');
 
@@ -118,10 +118,10 @@ function login_check(){
     }
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", url + "/?action=getPasswords");
+    xhr.open("POST", url + "/?action=getToken");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + sha512(password)));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + sha512(password + username + "passky2020")));
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -154,7 +154,7 @@ function login_check(){
 
             writeData('url', url);
             writeData('username', username);
-            writeData('secret', json['secret']);
+            writeData('token', json['token']);
             writeData('auth', json['auth']);
             writeData('yubico', json['yubico']);
             writeData('loginTime', new Date().getTime());

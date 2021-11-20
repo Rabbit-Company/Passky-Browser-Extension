@@ -393,7 +393,7 @@ function addPassword(){
     xhr.open("POST", readData('url') + "/?action=savePassword");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + sha512(decryptPassword(readData('password')))));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + readData('token')));
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -420,7 +420,7 @@ function addPassword(){
         }
 
     };
-    xhr.send("website=" + encodeURIComponent(website) + "&username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password) + "&message=" + encodeURIComponent(message) + "&otp=" + encodeURIComponent(readData('secret')));
+    xhr.send("website=" + encodeURIComponent(website) + "&username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password) + "&message=" + encodeURIComponent(message));
 }
 
 function editPassword(password_id){
@@ -457,7 +457,7 @@ function editPassword(password_id){
     xhr.open("POST", readData('url') + "/?action=editPassword");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + sha512(decryptPassword(readData('password')))));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + readData('token')));
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -484,7 +484,7 @@ function editPassword(password_id){
         }
 
     };
-    xhr.send("password_id=" + encodeURIComponent(password_id) + "&website=" + encodeURIComponent(website) + "&username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password) + "&message=" + encodeURIComponent(message) + "&otp=" + encodeURIComponent(readData('secret')));
+    xhr.send("password_id=" + encodeURIComponent(password_id) + "&website=" + encodeURIComponent(website) + "&username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password) + "&message=" + encodeURIComponent(message));
 }
 
 function deletePassword(password_id){
@@ -492,7 +492,7 @@ function deletePassword(password_id){
     xhr.open("POST", readData('url') + "/?action=deletePassword");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + sha512(decryptPassword(readData('password')))));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + readData('token')));
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -519,7 +519,7 @@ function deletePassword(password_id){
         }
 
     };
-    xhr.send("password_id=" + encodeURIComponent(password_id) + "&otp=" + encodeURIComponent(readData('secret')));
+    xhr.send("password_id=" + encodeURIComponent(password_id));
 }
 
 function filterPasswords(){

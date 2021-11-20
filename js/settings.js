@@ -62,7 +62,7 @@ function deleteAccount(){
     xhr.open("POST", readData('url') + "/?action=deleteAccount");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + sha512(decryptPassword(readData('password')))));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + readData('token')));
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -82,7 +82,7 @@ function deleteAccount(){
         }
 
     };
-    xhr.send("otp=" + encodeURIComponent(readData('secret')));
+    xhr.send();
 }
 
 function enable2fa(){
@@ -90,7 +90,7 @@ function enable2fa(){
     xhr.open("POST", readData('url') + "/?action=enable2fa");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + sha512(decryptPassword(readData('password')))));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + readData('token')));
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -120,7 +120,7 @@ function enable2fa(){
         }
 
     };
-    xhr.send("otp=" + encodeURIComponent(readData('secret')));
+    xhr.send();
 }
 
 function disable2fa(){
@@ -128,7 +128,7 @@ function disable2fa(){
     xhr.open("POST", readData('url') + "/?action=disable2fa");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + sha512(decryptPassword(readData('password')))));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + readData('token')));
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -149,7 +149,7 @@ function disable2fa(){
         }
 
     };
-    xhr.send("otp=" + encodeURIComponent(readData('secret')));
+    xhr.send();
 }
 
 function addYubiKey(id){
@@ -170,7 +170,7 @@ function addYubiKey(id){
     xhr.open("POST", readData('url') + "/?action=addYubiKey");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + sha512(decryptPassword(readData('password')))));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + readData('token')));
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -199,7 +199,7 @@ function addYubiKey(id){
         }
 
     };
-    xhr.send("id=" + encodeURIComponent(id) + "&otp=" + encodeURIComponent(readData('secret')));
+    xhr.send("id=" + encodeURIComponent(id));
 }
 
 function removeYubiKey(id){
@@ -220,7 +220,7 @@ function removeYubiKey(id){
     xhr.open("POST", readData('url') + "/?action=removeYubiKey");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + sha512(decryptPassword(readData('password')))));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(readData('username') + ":" + readData('token')));
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -243,7 +243,7 @@ function removeYubiKey(id){
         }
 
     };
-    xhr.send("id=" + encodeURIComponent(id) + "&otp=" + encodeURIComponent(readData('secret')));
+    xhr.send("id=" + encodeURIComponent(id));
 }
 
 function changeDialog(style, text){
