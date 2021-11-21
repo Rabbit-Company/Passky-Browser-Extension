@@ -13,6 +13,8 @@ initStorageCache.then(() => {
     document.getElementById("label-theme").innerText = lang[readData('lang')]["theme"];
     document.getElementById("label-session-duration").innerText = lang[readData('lang')]["session_duration"];
     
+    document.getElementById("label-auto-search").innerText = lang[readData('lang')]["auto_search"];
+
     document.getElementById("add-yubico-btn").innerText = lang[readData('lang')]["add"];
     document.getElementById("remove-yubico-btn").innerText = lang[readData('lang')]["remove"];
     
@@ -32,6 +34,14 @@ initStorageCache.then(() => {
     }else{
         document.getElementById("toggle-2fa-btn").innerText = lang[readData('lang')]["enable"];
         document.getElementById("toggle-2fa-btn").className = "successButton font-bold inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md focus:outline-none sm:text-sm";
+    }
+
+    if(readData('autoSearch') == "false"){
+        document.getElementById("toggle-auto-search").innerText = lang[readData('lang')]["enable"];
+        document.getElementById("toggle-auto-search").className = "successButton font-bold inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md focus:outline-none sm:text-sm";
+    }else{
+        document.getElementById("toggle-auto-search").innerText = lang[readData('lang')]["disable"];
+        document.getElementById("toggle-auto-search").className = "dangerButton font-bold inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md focus:outline-none sm:text-sm";
     }
     
     if(readData('yubico') == "null" || readData('yubico') == ''){
@@ -397,6 +407,15 @@ document.getElementById("main-menu-toggle-btn").addEventListener("click", () => 
 
 document.getElementById("dialog-button-cancel").addEventListener("click", () => {
     hide('dialog');
+});
+
+document.getElementById("toggle-auto-search").addEventListener("click", () => {
+    if(readData('autoSearch') == "false"){
+        writeData('autoSearch', "true");
+    }else{
+        writeData('autoSearch', "false");
+    }
+    location.reload();
 });
 
 document.getElementById("toggle-2fa-btn").addEventListener("click", () => {

@@ -82,14 +82,16 @@ initStorageCache.then(() => {
     
     displayPasswords();
 
-    try{
-        chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
-            if(tabs[0].url !== null && typeof(tabs[0].url) !== 'undefined'){
-                document.getElementById("search").value = new URL(tabs[0].url).hostname.replace("www.", "");
-                filterPasswords();
-            }
-        });
-    }catch{}
+    if(readData('autoSearch') != "false"){
+        try{
+            chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+                if(tabs[0].url !== null && typeof(tabs[0].url) !== 'undefined'){
+                    document.getElementById("search").value = new URL(tabs[0].url).hostname.replace("www.", "");
+                    filterPasswords();
+                }
+            });
+        }catch{}
+    }
 
     window.setInterval(function(){
         if(!isSessionValid()) logout();

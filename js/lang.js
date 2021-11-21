@@ -74,7 +74,8 @@ const lang = {
         "yubikey_removed_successfully": "Your Yubikey has been removed successfully",
         "yubikey_insert_device": "1. Insert your Yubikey to your device.",
         "yubikey_focus_input": "2. Click on OTP input",
-        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey",
+        "auto_search": "Auto Search"
     },
     "zh-CN": {
         "server": "服务器",
@@ -151,7 +152,8 @@ const lang = {
         "yubikey_removed_successfully": "Your Yubikey has been removed successfully",
         "yubikey_insert_device": "1. Insert your Yubikey to your device.",
         "yubikey_focus_input": "2. Click on OTP input",
-        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey",
+        "auto_search": "Auto Search"
     },
     "hi": {
         "server": "सर्वर",
@@ -228,7 +230,8 @@ const lang = {
         "yubikey_removed_successfully": "Your Yubikey has been removed successfully",
         "yubikey_insert_device": "1. Insert your Yubikey to your device.",
         "yubikey_focus_input": "2. Click on OTP input",
-        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey",
+        "auto_search": "Auto Search"
     },
     "tr": {
         "server": "Sunucu",
@@ -305,7 +308,8 @@ const lang = {
         "yubikey_removed_successfully": "Yubikey anahtarınız başarıyla kaldırıldı",
         "yubikey_insert_device": "1. Yubikey anahtarınızı cihazınıza takın.",
         "yubikey_focus_input": "2. OTP kutucuğuna tıklayın",
-        "yubikey_press_button": "3. Yubikey anahtarınızdaki altın renkli düğmeye basın"
+        "yubikey_press_button": "3. Yubikey anahtarınızdaki altın renkli düğmeye basın",
+        "auto_search": "Auto Search"
     },
     "fr": {
         "server": "Serveur",
@@ -382,7 +386,8 @@ const lang = {
         "yubikey_removed_successfully": "Your Yubikey has been removed successfully",
         "yubikey_insert_device": "1. Insert your Yubikey to your device.",
         "yubikey_focus_input": "2. Click on OTP input",
-        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey",
+        "auto_search": "Auto Search"
     },
     "ru": {
         "server": "Сервер",
@@ -459,7 +464,8 @@ const lang = {
         "yubikey_removed_successfully": "Your Yubikey has been removed successfully",
         "yubikey_insert_device": "1. Insert your Yubikey to your device.",
         "yubikey_focus_input": "2. Click on OTP input",
-        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey",
+        "auto_search": "Auto Search"
     },
     "de": {
         "server": "Server",
@@ -536,7 +542,8 @@ const lang = {
         "yubikey_removed_successfully": "Your Yubikey has been removed successfully",
         "yubikey_insert_device": "1. Insert your Yubikey to your device.",
         "yubikey_focus_input": "2. Click on OTP input",
-        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey",
+        "auto_search": "Auto Search"
     },
     "it": {
         "server": "Server",
@@ -613,7 +620,8 @@ const lang = {
         "yubikey_removed_successfully": "Your Yubikey has been removed successfully",
         "yubikey_insert_device": "1. Insert your Yubikey to your device.",
         "yubikey_focus_input": "2. Click on OTP input",
-        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey",
+        "auto_search": "Auto Search"
     },
     "pl": {
         "server": "Serwer",
@@ -690,7 +698,8 @@ const lang = {
         "yubikey_removed_successfully": "Twój Yubikey został pomyślnie usunięty",
         "yubikey_insert_device": "1. Włóż swój Yubikey do urządzenia.",
         "yubikey_focus_input": "2. Naciśnij na pole z jednorazowym hasłem",
-        "yubikey_press_button": "3. Naciśnij na złoty przycisk na swoim Yubikey"
+        "yubikey_press_button": "3. Naciśnij na złoty przycisk na swoim Yubikey",
+        "auto_search": "Auto Search"
     },
     "el": {
         "server": "Διακομιστής",
@@ -767,7 +776,8 @@ const lang = {
         "yubikey_removed_successfully": "Your Yubikey has been removed successfully",
         "yubikey_insert_device": "1. Insert your Yubikey to your device.",
         "yubikey_focus_input": "2. Click on OTP input",
-        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey",
+        "auto_search": "Auto Search"
     },
     "cs": {
         "server": "Server",
@@ -844,7 +854,8 @@ const lang = {
         "yubikey_removed_successfully": "Váš Yubikey byl úspěšně odebrán",
         "yubikey_insert_device": "1. Vložte váš Yubikey do vašeho zařízení.",
         "yubikey_focus_input": "2. Klikněte na OTP vstup",
-        "yubikey_press_button": "3. Stiskněte zlaté tlačítko umístěné na vašem Yubikey"
+        "yubikey_press_button": "3. Stiskněte zlaté tlačítko umístěné na vašem Yubikey",
+        "auto_search": "Auto Search"
     },
     "sv-SE": {
         "server": "Server",
@@ -921,7 +932,8 @@ const lang = {
         "yubikey_removed_successfully": "Your Yubikey has been removed successfully",
         "yubikey_insert_device": "1. Insert your Yubikey to your device.",
         "yubikey_focus_input": "2. Click on OTP input",
-        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey",
+        "auto_search": "Auto Search"
     },
     "no": {
         "server": "Server",
@@ -998,7 +1010,8 @@ const lang = {
         "yubikey_removed_successfully": "Your Yubikey has been removed successfully",
         "yubikey_insert_device": "1. Insert your Yubikey to your device.",
         "yubikey_focus_input": "2. Click on OTP input",
-        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey",
+        "auto_search": "Auto Search"
     },
     "nl": {
         "server": "Server",
@@ -1075,7 +1088,8 @@ const lang = {
         "yubikey_removed_successfully": "Your Yubikey has been removed successfully",
         "yubikey_insert_device": "1. Insert your Yubikey to your device.",
         "yubikey_focus_input": "2. Click on OTP input",
-        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey",
+        "auto_search": "Auto Search"
     },
     "sl": {
         "server": "Strežnik",
@@ -1152,7 +1166,8 @@ const lang = {
         "yubikey_removed_successfully": "Vaš Yubikey je bil uspešno odstranjen",
         "yubikey_insert_device": "1. Vstavite svoj Yubikey v napravo.",
         "yubikey_focus_input": "2. Kliknite na OTP polje za vnos podatkov",
-        "yubikey_press_button": "3. Pritisnite zlati gumb na Yubikeyju"
+        "yubikey_press_button": "3. Pritisnite zlati gumb na Yubikeyju",
+        "auto_search": "Samodejno iskanje"
     },
     "bs": {
         "server": "Server",
@@ -1229,7 +1244,8 @@ const lang = {
         "yubikey_removed_successfully": "Your Yubikey has been removed successfully",
         "yubikey_insert_device": "1. Insert your Yubikey to your device.",
         "yubikey_focus_input": "2. Click on OTP input",
-        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey",
+        "auto_search": "Auto Search"
     },
     "ro": {
         "server": "Server",
@@ -1306,7 +1322,8 @@ const lang = {
         "yubikey_removed_successfully": "Your Yubikey has been removed successfully",
         "yubikey_insert_device": "1. Insert your Yubikey to your device.",
         "yubikey_focus_input": "2. Click on OTP input",
-        "yubikey_press_button": "3. Press on gold button located on your Yubikey"
+        "yubikey_press_button": "3. Press on gold button located on your Yubikey",
+        "auto_search": "Auto Search"
     }
 }
 
