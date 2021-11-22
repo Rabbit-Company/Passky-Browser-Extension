@@ -90,6 +90,7 @@ function login_check(){
     const username = document.getElementById("username").value.toLowerCase();
     const password = document.getElementById("password").value;
     const otp = document.getElementById("otp").value.replace(/\s/g, '');
+    const newLoginSystem = document.getElementById("new-login-system").checked;
 
     if(url.length == 0 || username.length == 0 || password.length == 0) return;
 
@@ -117,11 +118,13 @@ function login_check(){
         return;
     }
 
+    let encryptedPassword = (newLoginSystem) ? sha512(password + username + "passky2020") : sha512(password);
+
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url + "/?action=getToken");
 
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + sha512(password + username + "passky2020")));
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + encryptedPassword));
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
