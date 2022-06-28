@@ -64,27 +64,12 @@ And when you donate, don’t think that you’re paying us to rest on our laurel
 If you’re ready to try Passky out at no cost, you can get started by visiting our website at https://passky.org. We currently have a desktop application available for Windows and Linux operating systems along with a mobile app on the Google Play Store. MacOS and iOS apps are currently being developed. In addition, we offer browser extensions for all major browsers except for Safari.
 
 ## Installation
-### Chrome
+### Chrome, Edge, Brave, Opera, Vivaldi...
 1. Visit Chrome web store and search for Passky (https://chrome.google.com/webstore/detail/passky/ngncpgfjhnkgfcjamgljadegplonbihi)
 2. Click on "Add to Chrome" button
-3. Passky is now installed
-
-### Opera
-1. Visit Chrome web store and search for Passky (https://chrome.google.com/webstore/detail/passky/ngncpgfjhnkgfcjamgljadegplonbihi)
-2. Click on "Add to Opera" button
 3. Passky is now installed
 
 ### FireFox
 1. Visit Mozilla addons store and search for Passky (https://addons.mozilla.org/en-US/firefox/addon/passky/)
 2. Click on "Add to FireFox" button
-3. Passky is now installed
-
-### Brave
-1. Visit Chrome web store and search for Passky (https://chrome.google.com/webstore/detail/passky/ngncpgfjhnkgfcjamgljadegplonbihi)
-2. Click on "Add to Brave" button
-3. Passky is now installed
-
-### Vivaldi
-1. Visit Chrome web store and search for Passky (https://chrome.google.com/webstore/detail/passky/ngncpgfjhnkgfcjamgljadegplonbihi)
-2. Click on "Add to Vivaldi" button
 3. Passky is now installed
