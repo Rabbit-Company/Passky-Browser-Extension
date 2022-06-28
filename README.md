@@ -70,7 +70,7 @@ If you’re ready to try Passky out at no cost, you can get started by visiting 
 3. Passky is now installed
 
 ### Opera
-1. Visit Chrome web store and search for Passky (https://addons.opera.com/en/extensions/details/passky/)
+1. Visit Chrome web store and search for Passky (https://chrome.google.com/webstore/detail/passky/ngncpgfjhnkgfcjamgljadegplonbihi)
 2. Click on "Add to Opera" button
 3. Passky is now installed
 
