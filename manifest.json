@@ -5,7 +5,7 @@
   "manifest_version": 3,
   "author": "Rabbit Company LLC",
   "homepage_url": "https://passky.org",
-  "permissions": ["clipboardWrite", "tabs", "storage"],
+  "permissions": ["clipboardWrite", "activeTab", "storage"],
   "action": {
     "default_icon": "/images/logo32.png",
     "default_title": "Passky",
