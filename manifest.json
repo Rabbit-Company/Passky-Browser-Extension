@@ -11,6 +11,14 @@
     "default_title": "Passky",
     "default_popup": "index.html"
   },
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["js/content-script.js"],
+    "run_at": "document_idle",
+    "all_frames": false,
+    "match_about_blank": false,
+    "match_origin_as_fallback": false
+  }],
   "icons": {
     "16": "/images/logo16.png",
     "32": "/images/logo32.png",
