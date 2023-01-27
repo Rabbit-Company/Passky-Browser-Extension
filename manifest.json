@@ -1,15 +1,25 @@
 {
   "name": "Passky - Password Manager",
   "description": "Simple, modern, open source and secure password manager.",
-  "version": "8.0.1",
+  "version": "8.1.0",
   "manifest_version": 3,
   "author": "Rabbit Company LLC",
   "homepage_url": "https://passky.org",
-  "permissions": ["clipboardWrite", "tabs", "storage"],
+  "permissions": ["clipboardWrite", "activeTab", "storage"],
   "action": {
     "default_icon": "/images/logo32.png",
     "default_title": "Passky",
     "default_popup": "index.html"
+  },
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["js/content-script.js"],
+    "run_at": "document_idle",
+    "all_frames": false,
+    "match_about_blank": false
+  }],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; base-uri 'none'; object-src 'none'; form-action 'self'; frame-ancestors 'none'; worker-src 'self';"
   },
   "icons": {
     "16": "/images/logo16.png",
