@@ -16,9 +16,11 @@
     "js": ["js/content-script.js"],
     "run_at": "document_idle",
     "all_frames": false,
-    "match_about_blank": false,
-    "match_origin_as_fallback": false
+    "match_about_blank": false
   }],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; base-uri 'none'; object-src 'none'; form-action 'self'; frame-ancestors 'none'; worker-src 'self';"
+  },
   "icons": {
     "16": "/images/logo16.png",
     "32": "/images/logo32.png",
