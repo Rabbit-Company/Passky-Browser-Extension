@@ -213,7 +213,7 @@ function autoFill(username, password){
 	try{
 		chrome.tabs.query({ active: true, lastFocusedWindow: true, windowType: "normal" }, tabs => {
 			if(typeof(tabs[0]) !== 'undefined' && typeof(tabs[0].id) !== 'undefined' && tabs[0].id !== null){
-				chrome.tabs.sendMessage(tabs[0].id, {username: username, password: password});
+				chrome.tabs.sendMessage(tabs[0].id, {username: username, password: password}).catch(err => {});
 			}
 		});
 	}catch{}
