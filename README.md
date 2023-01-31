@@ -5,7 +5,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/Rabbit-Company/Passky-Browser-Extension?style=for-the-badge)](https://github.com/Rabbit-Company/Passky-Browser-Extension/network)
 [![GitHub license](https://img.shields.io/github/license/Rabbit-Company/Passky-Browser-Extension?color=blue&style=for-the-badge)](https://github.com/Rabbit-Company/Passky-Browser-Extension/blob/main/LICENSE)
 
-### [Download from Rabbit Store](https://rabbitstore.org/?app=com.rabbit-company.passky)
+### [Download from Official Website](https://passky.org/download)
 
 ## Passky Clients
 
