@@ -22,14 +22,18 @@ loadData().then(() => {
 
 	if (readData('autoSearch') != "false") {
 		try {
-			chrome.tabs.query({
-				active: true,
-				lastFocusedWindow: true
-			}, tabs => {
-				if (typeof(tabs[0]) !== 'undefined' && typeof(tabs[0].url) !== 'undefined' && tabs[0].url !== null && parms.get("search") == null) {
-					window.location.assign("?search=" + new URL(tabs[0].url).hostname.replace("www.", ""));
-				}
-			});
+			const hasExistingParams = parms.get("search") != null || parms.get("page") != null;
+
+			if (!hasExistingParams) {
+				chrome.tabs.query({
+					active: true,
+					lastFocusedWindow: true
+				}, tabs => {
+					if (typeof(tabs[0]) !== 'undefined' && typeof(tabs[0].url) !== 'undefined' && tabs[0].url !== null && parms.get("search") == null) {
+						window.location.assign("?search=" + new URL(tabs[0].url).hostname.replace("www.", ""));
+					}
+				});
+			}
 		} catch {}
 	}
 
